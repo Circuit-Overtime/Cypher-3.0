@@ -1,7 +1,7 @@
 function ValidateUsername()
 {
 
-    globalThis.usernameValidifyValue = document.getElementById("otpInputUsername").value;
+    globalThis.usernameValidifyValue = document.getElementById("otpInputUsername").value.trim();
     var docRef = db.collection("users").doc(usernameValidifyValue.toLowerCase());
     docRef.get().then((doc) => {
        if(doc.exists) 
@@ -12,17 +12,10 @@ function ValidateUsername()
         {
             ForgotPasswordError("Sorry, but your account has bind with Either google or github, can't change password remotely!");
         }
+   
         else
         {
-            document.getElementById("otpInputUsername").style.pointerEvents = "none";
-        document.getElementById("otpInputUsername").style.opacity = "65%";
-
-        document.getElementById("otpInput").style.display = "block";
-        document.getElementById("otpInputMask").style.display = "block";
-        document.getElementById("validOTP").style.display = "block";
-        globalThis.usernameEmail = doc.data().email;
-
-
+            
         var docRef = db.collection("users").doc(usernameValidifyValue.toLowerCase());
         docRef.get().then((doc) => { // gets the whole data against the entered email address
         lastPasswordChangeDate = (doc.data().lastPasswordChange);
@@ -60,6 +53,12 @@ function ValidateUsername()
         {
             document.getElementById("submitEntryCardForgetPassowrd").setAttribute("onclick", "SendOTP()");
             document.getElementById("submitEntryCardForgetPassowrd").innerHTML = "Send OTP";
+            document.getElementById("otpInputUsername").style.pointerEvents = "none";
+            document.getElementById("otpInputUsername").style.opacity = "65%";
+            document.getElementById("otpInput").style.display = "block";
+            document.getElementById("otpInputMask").style.display = "block";
+            document.getElementById("validOTP").style.display = "block";
+            globalThis.usernameEmail = doc.data().email;
         }
         else
         {
@@ -67,10 +66,8 @@ function ValidateUsername()
             ForgotPasswordError(warningDateChange);
         }
         })
-        }
-        
+        }}
 
-        }
        else
        {
         ForgotPasswordError("No Account Exists with this Username");
@@ -141,8 +138,14 @@ function SendOTP() {
   function setNewPassword()
   {
     var newPassword = document.getElementById("changePassword").value;
-    db.collection('users').doc(usernameValidifyValue.toLowerCase()).update({
-        password: newPassword,
+    currentDate = new Date();
+            
+        // Format the current date in the same format as your database
+        var currentDateFormatted = currentDate.getDate() + "/" + (currentDate.getMonth() + 1) + "/" + currentDate.getFullYear();
+        db.collection('users').doc(usernameValidifyValue.toLowerCase()).update({
+            password: newPassword,
+            lastPasswordChange: String(currentDateFormatted),
+
     })
     ForgotPasswordError("Your Password has been updated! Please relogin!");
     document.getElementById("changePassword").value = "";
@@ -150,6 +153,9 @@ function SendOTP() {
     document.getElementById("otpInput").value = "";
 
     document.getElementById("validOTP").style.transform = "translateX(150px)";
-    localStorage.clear();
-    location.reload();
+    setTimeout(() => {
+        localStorage.clear();
+        location.reload();
+    }, 3500);
+  
   }
