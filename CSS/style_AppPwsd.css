@@ -1,0 +1,228 @@
+
+.addApp
+{
+    position: absolute;
+    height: 580px;
+    width: 100%;
+    top: 13%;
+    transform: translateY(585px);
+    transition: 0.5s;
+    left: 0;
+    background: #111111a2;
+    backdrop-filter: blur(10px);
+    z-index: -1;
+    opacity: 0;
+}
+.addApp.active
+{
+    position: absolute;
+    height: 580px;
+    width: 100%;
+    top: 13%;
+    transform: translateY(0px);
+    transition: 0.5s;
+    left: 0;
+    background: #111111a2;
+    backdrop-filter: blur(10px);
+    z-index: 15;
+    opacity: 1;
+}
+
+
+.usernameInpApp
+{
+    position: absolute;
+    height: 50px;
+    top: 175px;
+    padding-right: 35px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    width: 86%;
+    left: 6.5%;
+    border-radius: 20px;
+    font-weight: 700; 
+    background: #111111fa;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 20px;
+    z-index: 15;
+  
+}
+.maskNameApp
+{
+   position: absolute;
+    height: 60px;
+    top: 171px;
+    border: none;
+    outline: none;
+    width: 90%;
+    left: 5%;
+    border-radius: 20px;
+    font-weight: 700;
+    text-indent: 40px; 
+    background-color: #00DBDE;
+    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+    color: #fff;
+    z-index: 12;
+}
+
+.usernameInpApp::placeholder
+{
+    color: #fff;
+    font-size: 19px;
+    font-family: 'Kanit';
+    mix-blend-mode: screen;
+
+}
+
+.passwordInpApp
+{
+    position: absolute;
+    height: 50px;
+    top: 254px;
+    padding-right: 70px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    width: 86%;
+    left: 6.5%;
+    border-radius: 20px;
+    font-weight: 700;
+    background: #111111fa;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 20px;
+    z-index: 15;
+}
+.maskPassApp
+{
+   position: absolute;
+    height: 60px;
+    top: 250px;
+    border: none;
+    outline: none;
+    width: 90%;
+    left: 5%;
+    border-radius: 20px;
+    font-weight: 700;
+    text-indent: 40px; 
+    background-color: #85FFBD;
+    background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+
+    color: #fff;
+    z-index: 12;
+
+}
+
+.passwordInpApp::placeholder
+{
+    color: #fff;
+    font-size: 19px;
+    font-family: 'Kanit';
+    mix-blend-mode: screen;
+
+}
+#SeePwd
+{
+    position: absolute;
+    font-size: 20px;
+    color: rgb(0, 255, 85);
+    z-index: 15;
+    top: 270px;
+    left: 70%;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+#GenPwdApp
+{
+    position: absolute;
+    font-size: 20px;
+    color: #ffc;
+    z-index: 15;
+    top: 270px;
+    left: 80%;
+    -webkit-tap-highlight-color: transparent;
+    display: block;
+}
+#copyPass
+{
+    position: absolute;
+    font-size: 20px;
+    color: rgb(255, 166, 0);
+    z-index: 15;
+    top: 270px;
+    left: 80%;
+    display: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#editDetailsForApp
+{
+  position: absolute;
+  font-size: 20px;
+  color: #ffc;
+  z-index: 15;
+  top: 110px;
+  opacity: 0;
+  transition: 0.5s;
+  left: 83%;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  animation: bounce .5s ease infinite alternate;
+  animation-play-state: paused;
+  text-shadow: 0 0px 0 #ccc;
+  
+}
+#cancelEditDetailsForApp
+{
+  position: absolute;
+  font-size: 20px;
+  color: rgb(214, 21, 21);
+  z-index: 15;
+  top: 110px;
+  left: 7%;
+  transition: 0.5s;
+  opacity: 0;
+  cursor: pointer;
+  animation-play-state: paused;
+  text-shadow: 0 5px 10px rgb(214, 21, 21);
+}
+
+
+
+
+.submitEntryApp
+{
+    height: 60px;
+    width: 90%;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+    font-size: 24px;
+    font-family: 'Kanit';
+    border-radius: 25px;
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: 700;
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+#caretDownApp
+{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffc;
+    font-size: 24px;
+    -webkit-tap-highlight-color: transparent;
+}

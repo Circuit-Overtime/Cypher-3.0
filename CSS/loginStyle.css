@@ -1,0 +1,166 @@
+
+body
+{
+    min-height: 150vh;
+    margin-bottom: 90px;
+    background: #222;
+    overflow: hidden;
+}
+.loginform
+{
+    position: absolute;
+    height: 570px;
+    width: 90%;
+    top: 5%;
+    left: 5%;
+    background: #000000a1;
+    backdrop-filter: blur(15px);
+    clip-path: polygon(0 0, 100% 0, 100% 99%, 0 72%);
+    border-radius: 25px;
+    border-bottom-right-radius: 50px;
+    display: block;
+    transition: 0.5s;
+    transform: translateY(-520px);
+}
+.registerForm
+{
+    position: absolute;
+    height: 600px;
+    top: 10%;
+    width: 90%;
+    left: 5%;
+    background: #000000a1;
+    backdrop-filter: blur(15px);
+    border-top-left-radius: 50px;
+    border-radius: 25px;
+    clip-path: polygon(0 0, 100% 25%, 100% 100%, 0 100%);
+    transform: translateY(0px);
+    margin-bottom:250px ;
+    display: block;
+    transition: 0.5s;
+
+}
+
+.LogoutForm
+{
+    position: absolute;
+    height: 400px;
+    top: 23%;
+    width: 90%;
+    left: 5%;
+    background: #000000a1;
+    backdrop-filter: blur(15px);
+    border-top-left-radius: 50px;
+    border-radius: 25px;
+    overflow: hidden;
+    transform: translateY(1204px);
+    margin-bottom:250px ;
+    display: block;
+    transition: 0.5s;
+
+}
+
+.ForgetPasswordForm
+{
+    position: absolute;
+    height: 400px;
+    top: 23%;
+    width: 90%;
+    left: 5%;
+    background: #000000a1;
+    backdrop-filter: blur(15px);
+    border-top-left-radius: 50px;
+    border-radius: 25px;
+    overflow: hidden;
+    transform: translateY(1204px); /*1204 px*/
+    margin-bottom:250px ;
+    display: block;
+    transition: 0.5s;
+
+}
+
+
+.blob1
+{
+    position: absolute;
+    transform: rotate(-45deg) scale(2);
+    left: 2%;
+    top: 5%;
+    z-index: -1;
+    animation: rotating 12s linear infinite;
+    filter: drop-shadow(0 0 20px #ff4e00);
+
+}
+
+.blob2
+{
+    position: absolute;
+    transform: rotate(-45deg) scale(2) translateY(115px);
+    left: 25%;
+    top: 30%;
+    z-index: -1;
+    animation: rotating2 8s linear infinite;
+    filter: drop-shadow(0 0 20px #12fff7);
+}
+@keyframes rotating {
+    0%
+    {
+        transform: rotate(-45deg) scale(2);
+    }
+    50%
+    {
+        transform: rotate(-55deg) scale(2) ;
+    }
+    100%
+    {
+        transform: rotate(-45deg) scale(2);
+    }
+}
+
+@keyframes rotating2 {
+    0%
+    {
+        transform: rotate(-45deg) scale(2) translateY(115px);
+    }
+    50%
+    {
+        transform: rotate(-40deg) scale(2) translateY(115px);
+    }
+    100%
+    {
+        transform: rotate(-45deg) scale(2) translateY(115px);
+    }
+}
+
+#signin_with_google
+{
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    left: 5%;
+    top: 73%;
+    transition: 0.5s;
+    background: url("https://firebasestorage.googleapis.com/v0/b/psswdmanager-68a29.appspot.com/o/OfficialFiles%2FGoogle__G__logo.svg.png?alt=media&token=9c6e22bb-dfb0-4368-89c9-2372ba57762c");
+    background-size: cover;
+    mix-blend-mode: normal;
+    filter: drop-shadow(0 0 20px #111);
+    z-index: 10;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#signin_with_github
+{
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    left: 70%;
+    top: 88%;
+    transition: 0.5s;
+    background: url("https://firebasestorage.googleapis.com/v0/b/psswdmanager-68a29.appspot.com/o/OfficialFiles%2Fgithub%20logo.png?alt=media&token=074703b5-9535-4a73-b140-fb0301630003");
+    background-size: cover;
+    mix-blend-mode: normal;
+    filter: drop-shadow(0 0 10px #fff);
+    z-index: 10;
+    -webkit-tap-highlight-color: transparent;
+    filter: invert(1);
+}

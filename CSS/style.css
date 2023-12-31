@@ -1,0 +1,589 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&family=Gugi&family=Kanit:wght@300&family=Oswald:wght@300&family=Prompt:wght@300&family=Reenie+Beanie&family=Silkscreen&family=VT323&family=Zeyada&display=swap');
+*
+{
+    -webkit-tap-highlight-color: transparent;
+}
+body
+{
+    background: #111;
+    overflow: none;
+    box-sizing: border-box;
+}
+html
+{
+    scroll-behavior: smooth;
+}
+
+.profile_logo
+{
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    top: 15px;
+    left: 5%;
+    border-radius: 50%;
+    background-size: cover;
+    overflow: hidden;
+    box-shadow: 0 0 10px #ffc;
+    
+}
+.profile_logo::before
+{
+    content: '';
+    position: relative;
+    height: 65px;
+    background-size: cover;
+    width: 65px;
+    background: #111;
+    top: 0;
+    left: 0;
+}
+.profile_name
+{
+    position: absolute;
+    color: #ffc;
+    font-size: 15px;
+    font-family: "Gugi";
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-left: 80px;
+    top: 10px;
+}
+
+.greeting
+{
+    position: absolute;
+    color: rgb(126, 126, 124);
+    font-size: 15px;
+    font-family: "Gugi";
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-left: 80px;
+    top: 35px;
+}
+
+
+#searchBar
+{
+    position: absolute;
+    height: 50px;
+    top: 94px;
+    padding-right: 35px;
+    padding-left: 50px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    width: 86%;
+    left: 6.5%;
+    border-radius: 20px;
+    font-weight: 700;
+    background: #111111fa;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 20px;
+}
+
+@keyframes colorChange {
+    0%
+    {
+        filter: hue-rotate(0deg);
+    }
+    20%
+    {
+        filter: hue-rotate(5deg);
+    }
+    40%
+    {
+        filter: hue-rotate(10deg);
+    }
+    60%
+    {
+        filter: hue-rotate(15deg);
+    }
+    80%
+    {
+        filter: hue-rotate(20deg);
+    }
+    100%
+    {
+        filter: hue-rotate(30deg);
+    }
+}
+.mask
+{
+   position: absolute;
+    height: 60px;
+    top: 90px;
+    border: none;
+    outline: none;
+    width: 90%;
+    left: 5%;
+    border-radius: 20px;
+    font-weight: 700;
+    text-indent: 40px; 
+    background: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
+    color: #fff;
+    z-index: -5;
+    animation: colorChange 9s linear infinite;
+}
+
+#searchBar::placeholder
+{
+    color: #fff;
+    font-size: 19px;
+    font-family: 'Kanit';
+    mix-blend-mode: screen;
+
+}
+ion-icon
+{
+    position: absolute;
+    top: 108px;
+    left: 30px;
+    font-size: 20px;
+    color: #ffc;
+    z-index: 10;
+
+}
+
+.ctg-text
+{
+    position: absolute;
+    top: 21%;
+    margin-left: 5px;
+    color: #ffc;
+    font-size: 19px;
+    font-family: 'Kanit';
+    font-weight: 700;
+    width: 90%;
+    left: 10%;
+    letter-spacing: 25px;
+}
+.category_div
+{
+    position: absolute;
+    top: 24%;
+    background: transparent;
+    height: 80px;
+    width: 90%;
+    left: 7%;
+    display: flex;
+}
+.category_div #ctg_icons_apps
+{
+    position: relative;
+    color: #ffc;
+    font-size: 40px;
+    margin-left: 20px;
+    color: #FD9490;
+    position: relative;
+
+}
+
+.category_div #ctg_icons_phone
+{
+    position: relative;
+    color: #ffc;
+    font-size: 40px;
+    margin-left: 20px;
+    color: #F4CACB;
+   position: relative;
+    left: 50px;
+    margin-right: 15px;
+
+}
+
+.category_div #ctg_icons_card
+{
+    position: relative;
+    color: #ffc;
+    font-size: 40px;
+    margin-left: 20px;
+    color: #C76A87;
+    margin-left: 15px;
+    position: relative;
+    left: 95px;
+
+}
+
+
+
+ /* LOGIN APPS CARDS TEXT LABELS */
+
+
+.category_div .classify:nth-child(4)
+{
+    position: relative;
+    color: #b185f7;
+    display: flex;
+    left: -68%;
+    top: 38%;
+    margin-left: 25px; 
+    padding-left: 35px;
+    font-family: 'Kanit';    
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.category_div .classify:nth-child(5)
+{
+    position: relative;
+    color: #b185f7;
+    display: flex;
+    left: -66%;
+    top: 38%;
+    margin-left: 25px; 
+    padding-left: 35px;
+    font-family: 'Kanit';    
+    font-weight: 700;
+    font-size: 15px;
+}
+
+
+.category_div .classify:nth-child(6)
+{
+    position: relative;
+    color: #b185f7;
+    display: flex;
+    left: -60%;
+    top: 38%;
+    margin-left: 25px; 
+    padding-left: 35px;
+    font-family: 'Kanit';    
+    font-weight: 700;
+    font-size: 15px;
+}
+
+/* BOTTOM NAV BAR  */
+.bottom-nav
+{
+    position: absolute;
+    top: 90%;
+    width: 100%;
+    left: 0;
+    height: 66px;
+    border-top-left-radius: 17px;
+    border-top-right-radius: 17px;
+    background-color: #222222;
+}
+.addBtn
+{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50%;
+    border: 8px solid #111;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.addBtn i
+{
+    color: rgb(0, 140, 255);
+    font-size: 24px;
+    position: relative;
+    z-index: 10000;
+    
+    transform-origin: center;
+    transform: scale(2.8);
+    font-family: 'calibri';
+    font-weight: 100;
+    
+}
+
+.bottom-nav #navBarBtnsHome
+{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffc;
+    left: 5%;
+    font-size: 24px;
+
+}
+
+.bottom-nav #navBarBtnsPsswdGen
+{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(253, 186, 0, 0.986);
+    left: 25%;
+    font-size: 24px;
+
+}
+
+
+.bottom-nav #navBarBtnsAllPsswd
+{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgb(1, 253, 136);
+    left: 67%;
+    font-size: 24px;
+
+}
+
+
+.bottom-nav #navBarBtnsUsr
+{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgb(255, 0, 55);
+    left: 85%;
+    font-size: 24px;
+    
+
+}
+
+
+ /* RENCETLY USED TEXT  */
+.rtn-text
+{
+    position: absolute;
+    top: 32%;
+    margin-left: 5px;
+    color: #ffc;
+    font-size: 19px;
+    font-family: 'Kanit';
+    font-weight: 700;
+    left: 50%;
+    transform: translateX(-50%);
+    letter-spacing: 2px;  
+    -webkit-tap-highlight-color: transparent; 
+    user-select : none;
+}
+
+
+/* CONTAINS THE PASSWORD DISPLAYS  */
+
+.psswdBlobCont
+{
+    position: absolute;
+    height: 328px;
+    width: 90%;
+    top: 40%;
+    left: 5%;
+    background: transparent;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-tap-highlight-color: transparent;
+    user-select : none;
+}
+
+.psswdBlobCont::-webkit-scrollbar
+{
+    background: transparent;
+}
+.psswdBlobCntSng
+{
+    position: relative;
+    height: 60px;
+    width: 100%;
+    
+    background: #333;
+    left: 0%;
+    top: 0;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+@keyframes appearFromSide {
+    0%
+    {
+        transform: translateX(-100%);
+    }
+    100% 
+    {
+        transform: translateX(0);
+    }
+}
+
+@keyframes appearFromPopping {
+    0%
+    {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% 
+    {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes disapperarFromPopping {
+    0%
+    {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% 
+    {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+
+
+.noDataPatch
+{
+    position: absolute;
+    width: 350px;
+    height: 650px;
+    background: transparent;
+    background: url("https://firebasestorage.googleapis.com/v0/b/psswdmanager-68a29.appspot.com/o/OfficialFiles%2FnoData.png?alt=media&token=2c1168c1-0c83-44be-8ec4-95748fc15806");
+    background-size: cover;
+    top: -76%;
+    left: 50%;
+    transition: 0.5s;
+    transform: translateX(-50%);
+    opacity: 0;
+    
+}
+.noDataPatch.noDataPatchVisible
+{
+    position: absolute;
+    width: 350px;
+    height: 650px;
+    background: transparent;
+    background: url("https://firebasestorage.googleapis.com/v0/b/psswdmanager-68a29.appspot.com/o/OfficialFiles%2FnoData.png?alt=media&token=2c1168c1-0c83-44be-8ec4-95748fc15806");
+    background-size: cover;
+    top: -76%;
+    left: 50%;
+    transition: 0.5s;
+    transform: translateX(-50%);
+    opacity: 1;
+}
+.psswdBlobCntSngImg
+{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: #111;
+    background-size: cover;
+    /* background: url("./IMG/cypher\ eye\ logo.png"); */
+    
+    /* mix-blend-mode: screen; */
+    -webkit-tap-highlight-color: transparent;
+}
+.psswdBlobCntSngName
+{
+    position: absolute;
+    top: -9px;
+    left: 20%;
+    color: #FD9490;
+    font-family: 'Kanit';
+    font-weight: 700;
+    -webkit-tap-highlight-color: transparent;
+    user-select : none;
+    
+}
+.psswdBlobCntSngEmail
+{
+    position: absolute;
+    top: 17px;
+    left: 20%;
+    color: #ffdedd;
+    font-family: 'Kanit';
+    font-weight: 700;
+    font-size: 12px;
+    word-wrap: normal; 
+    -webkit-tap-highlight-color: transparent;
+    user-select : none;
+}
+#psswdBlobCntSngCopyIcn
+{
+    position: absolute;
+    top: 17px;
+    left: 85%;
+    color: #00ff88;
+    font-weight: 700;
+    font-size: 20px;
+    word-wrap: normal; 
+    -webkit-tap-highlight-color: transparent;
+    user-select : none;
+}
+
+#psswdBlobCntSngEditIcn
+{
+    position: absolute;
+    top: 17px;
+    left: 92%;
+    color: #f0239b;
+    font-weight: 700;
+    font-size: 20px;
+    word-wrap: normal;
+    -webkit-tap-highlight-color: transparent; 
+    user-select : none;
+}
+
+
+
+
+
+
+/* LOADER ANIMATION FOR DATA  */
+
+.lds-ripple {
+    display: inline-block;
+    position: absolute;
+    width: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    height: 80px;
+  }
+  .lds-ripple div {
+    position: absolute;
+    border: 4px solid #fff;
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  .lds-ripple div:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+  @keyframes lds-ripple {
+    0% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+    4.9% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+    5% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      top: 0px;
+      left: 0px;
+      width: 72px;
+      height: 72px;
+      opacity: 0;
+    }
+  }
+  

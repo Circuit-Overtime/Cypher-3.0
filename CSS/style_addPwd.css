@@ -1,0 +1,714 @@
+
+
+
+:root
+{
+    --usernameInpTop : 130px;
+    --passInpTop : 200px;
+    --emailInpTop : 320px;
+    --usernameInpTopVal : 130;
+    --passInpTopVal : 200;
+    
+    --darkYellow: #ff930f;
+    --yellow: #f3f701 ;
+    --lightYellow: #fff95b ;
+
+    --emailInpTopVal : 320;
+}
+
+@keyframes background-pan {
+    from {
+      background-position: 0% center;
+    }
+    
+    to {
+      background-position: -200% center;
+    }
+  }
+  
+  @keyframes scale {
+    from, to {
+      transform: scale(0);
+    }
+    
+    50% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    
+    to {
+      transform: rotate(180deg);
+    }
+  }
+
+
+.whiteBar
+{
+    position: absolute;
+    top: 0.5%;
+    width: 30%;
+    height: 5px;
+    border-radius: 10px;
+    left: 35%;
+    background-color: #21D4FD;
+    z-index: 15;
+
+}
+.addPsswd
+{
+    position: absolute;
+    height: 580px;
+    width: 100%;
+    top: 13%;
+    transform: translateY(585px);
+    transition: 0.5s;
+    left: 0;
+    background: #111111a2;
+    backdrop-filter: blur(10px);
+    z-index: -1;
+    opacity: 0;
+    
+}
+.addPsswd.active
+{
+    position: absolute;
+    height: 580px;
+    width: 100%;
+    top: 13%;
+    transform: translateY(0px);
+    display: block;
+    transition: 0.5s;
+    left: 0;
+    background: #111111a2;
+    backdrop-filter: blur(10px);
+    z-index: 15;
+    opacity: 1;
+    
+}
+.suggestNav
+{
+    position: relative;
+    height: 60px;
+    width: 100%;
+    left:0;
+    background: transparent;
+    display: flex;
+    top: 5%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    transition: 0.5s;
+    -webkit-tap-highlight-color: transparent;
+
+
+}
+.suggestNav::-webkit-scrollbar
+{
+    background-color: transparent;
+}
+.suggestNav .custom,
+.suggestNav .canva,
+.suggestNav .openAI
+{
+    position: relative;
+    width: 80px;
+    top: 53%;
+    transform: translateY(-50%);
+    margin-right: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Kanit';
+    font-weight: 700;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    height: 30px;
+    left: 2%;
+    border-radius: 25px;
+    color: #fff;
+    z-index: 1;
+    cursor: pointer;
+
+}
+.suggestNav .twitter
+{
+    position: relative;
+    width: 80px;
+    top: 53%;
+    transform: translateY(-50%);
+    margin-right: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Kanit';
+    font-weight: 700;
+    background-color: #4158D0;
+    background-color: #00DBDE;
+    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+    height: 30px;
+    left: 2%;
+    border-radius: 25px;
+    color: #fff;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.suggestNav .figma
+{
+    position: relative;
+    width: 80px;
+    top: 53%;
+    transform: translateY(-50%);
+    margin-right: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Kanit';
+    font-weight: 700;
+    background-color: #FFE53B;
+    background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+    height: 30px;
+    left: 2%;
+    border-radius: 25px;
+    color: #fff;
+    z-index: 1;
+    cursor: pointer;
+}
+.suggestNav .google
+{
+    background-color: #FEE140;
+    background-image: linear-gradient(90deg, #FEE140 0%, #FA709A 100%);
+    position: relative;
+    width: 80px;
+    top: 53%;
+    transform: translateY(-50%);
+    margin-right: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Kanit';
+    font-weight: 700;;
+    height: 30px;
+    left: 2%;
+    border-radius: 25px;
+    color: #fff;
+    z-index: 1;
+    cursor: pointer;
+
+}
+.suggestNav .openAI
+{
+    position: relative;
+    width: 80px;
+    top: 53%;
+    transform: translateY(-50%);
+    margin-right: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Kanit';
+    font-weight: 700;
+    background-color: #FFE53B;
+    background-color: #FFE53B;
+    background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+    height: 30px;
+    left: 2%;
+    border-radius: 25px;
+    color: #fff;
+    z-index: 1;
+    cursor: pointer;
+}
+
+
+
+.suggestNav .facebook,
+.suggestNav .whatsapp
+{
+    position: relative;
+    width: 120px;
+    top: 53%;
+    transform: translateY(-50%);
+    margin-right: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Kanit';
+    font-weight: 700;
+    background-color: #21D4FD;
+    background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+    z-index: 1;
+    height: 30px;
+    color: #fff;
+    left: 2%;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+
+.suggestNav .custom::before,
+.suggestNav .twitter::before,
+.suggestNav .figma::before,
+.suggestNav .canva::before,
+.suggestNav .openAI::before,
+.suggestNav .facebook::before,
+.suggestNav .whatsapp::before,
+.suggestNav .google::before
+{
+    content: '';
+    background: #030303;
+    backdrop-filter: blur(25px);
+    position: absolute;
+    height: 82%;
+    width: 90%;
+    border-radius: 25px;
+    z-index: -2;
+    top: 8%;
+    left: 5%;
+    
+}
+
+.selectedService
+{
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-family: 'kanit';
+    font-weight: 700;
+    font-size: 30px;
+    
+}
+
+
+.ServiceText {
+    color: white;
+    font-size: clamp(2em, 2vw, 4em);
+    font-weight: 400;
+    margin: 0px;
+    padding: 20px;
+    text-align: center;
+    font-family: 'kanit';
+    position: absolute;
+    top: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 700;
+    font-size: 30px;
+  }
+  
+  .ServiceText > .magic {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .ServiceText > .magic > .magic-star {
+    --size: clamp(20px, 1.5vw, 30px);
+    
+    animation: scale 700ms ease forwards;
+    display: block;
+    height: var(--size);
+    left: var(--star-left);
+    position: absolute;
+    top: var(--star-top);
+    width: var(--size);
+  }
+  
+  .ServiceText > .magic > .magic-star > svg {
+    animation: rotate 1000ms linear infinite;
+    display: block;
+    opacity: 0.8;
+  }
+  
+  .ServiceText > .magic > .magic-star > svg > path {
+    fill: var(--lightYellow);
+  }
+  
+  .ServiceText > .magic > .magic-text {
+    animation: background-pan 3s linear infinite;
+    background: linear-gradient(
+      to right,
+      var(--darkYellow),
+      var(--lightYellow),
+      var(--yellow),
+      var(--darkYellow)
+      
+    );
+    font-family: 'kanit';
+    font-weight: 700;
+    font-size: 30px;
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+  }
+
+/* INPUTS FROM USER  */
+
+.usernameInp
+{
+    position: absolute;
+    height: 50px;
+    top: 175px;
+    padding-right: 35px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    width: 86%;
+    left: 6.5%;
+    border-radius: 20px;
+    font-weight: 700;
+    background: #111111fa;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 20px;
+    z-index: 15;
+}
+
+.addPasswordUsernameDefinition
+{
+    color: #fff;
+    font-size: 24px;
+    font-family: 'Kanit';
+    position: absolute;
+    font-weight: 400;
+    top: 130px;
+    background-color: #111111fa;
+    z-index: 16;
+    height: auto;
+    width: calc(auto + 15);
+    backdrop-filter: blur(10px);
+    background-blend-mode: screen;
+    left: 15%;
+}
+
+
+.maskName
+{
+   position: absolute;
+    height: 60px;
+    top: 171px;
+    border: none;
+    outline: none;
+    width: 90%;
+    left: 5%;
+    border-radius: 20px;
+    font-weight: 700;
+    text-indent: 40px; 
+    background-color: #00DBDE;
+    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+    color: #fff;
+    z-index: 12;
+}
+
+.usernameInp::placeholder
+{
+    color: #fff;
+    font-size: 19px;
+    font-family: 'Kanit';
+    mix-blend-mode: screen;
+
+}
+
+.passwordInp
+{
+    position: absolute;
+    height: 50px;
+    top: 254px;
+    padding-right: 75px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    width: 86%;
+    left: 6.5%;
+    border-radius: 20px;
+    font-weight: 700;
+    background: #111111fa;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 20px;
+    z-index: 15;
+}
+.maskPass
+{
+   position: absolute;
+    height: 60px;
+    top: 250px;
+    border: none;
+    outline: none;
+    width: 90%;
+    left: 5%;
+    border-radius: 20px;
+    font-weight: 700;
+    text-indent: 40px; 
+    background-color: #85FFBD;
+    background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+    color: #fff;
+    z-index: 12;
+
+}
+
+.passwordInp::placeholder
+{
+    color: #fff;
+    font-size: 19px;
+    font-family: 'Kanit';
+    mix-blend-mode: screen;
+
+}
+#GenPwd
+{
+    position: absolute;
+    font-size: 20px;
+    color: #ffc;
+    z-index: 15;
+    top: 270px;
+    left: 75%;
+    -webkit-tap-highlight-color: transparent;
+}
+#editDetailsForLogin
+{
+  position: absolute;
+  font-size: 20px;
+  color: #ffc;
+  z-index: 15;
+  top: 110px;
+  left: 83%;
+  opacity: 0;
+  transition: 0.5s;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  animation: bounce .5s ease infinite alternate;
+  animation-play-state: paused;
+  text-shadow: 0 0px 0 #ccc;
+  
+}
+#cancelEditDetails
+{
+  position: absolute;
+  font-size: 20px;
+  color: rgb(214, 21, 21);
+  z-index: 15;
+  top: 110px;
+  left: 7%;
+  transition: 0.5s;
+  opacity: 0;
+  cursor: pointer;
+  animation-play-state: paused;
+  text-shadow: 0 5px 10px rgb(214, 21, 21);
+}
+
+@keyframes bounce {
+  0% {
+      text-shadow:
+                  0 5px 0 #ccc,
+                  0 2px 3px transparent;  
+  }
+  100% {
+    transform:translateY(-20px);
+    text-shadow:  0 50px 0 black,
+                  0 0px 20px #ffc;
+  }
+}
+
+
+#SeePwdOfAddPwd
+{
+    position: absolute;
+    font-size: 20px;
+    color: rgb(0, 255, 85);
+    z-index: 15;
+    top: 270px;
+    left: 83%;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+#copyPassAddPassword
+{
+    position: absolute;
+    font-size: 20px;
+    color: rgb(255, 166, 0);  
+    z-index: 15;
+    top: 270px;
+    left: 75%;
+    display: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.emailInp
+{
+    position: absolute;
+    height: 50px;
+    top: 340px;
+    padding-right: 35px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    width: 86%;
+    left: 6.5%;
+    border-radius: 20px;
+    font-weight: 700;
+    
+    background: #111111fa;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 20px;
+    z-index: 15;
+}
+.maskEmail
+{
+   position: absolute;
+    height: 60px;
+    top: 336px;
+    border: none;
+    outline: none;
+    width: 90%;
+    left: 5%;
+    border-radius: 20px;
+    font-weight: 700;
+    text-indent: 40px; 
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+
+    color: #fff;
+    z-index: 12;
+    
+}
+
+.emailInp::placeholder
+{
+    color: #fff;
+    font-size: 19px;
+    font-family: 'Kanit';
+    mix-blend-mode: screen;
+
+}
+
+.submitEntry
+{
+    height: 60px;
+    width: 90%;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+    font-size: 24px;
+    font-family: 'Kanit';
+    border-radius: 25px;
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: 700;
+
+}
+
+.submitEntry i
+{
+    color: rgb(0, 140, 255);
+    font-size: 24px;
+    position: relative;
+    transform-origin: center;
+    transform: scale(2.8);
+    font-weight: 100;
+    
+}
+
+#caretDown
+{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffc;
+    font-size: 24px;
+    
+    
+}
+
+#delete_button
+{
+    height: 80px;
+    width: 80px;
+    padding-left: -15px;
+    position: absolute;
+    top: 95%;
+    border-top-right-radius: 25px;
+    transform: translateY(-50%);
+    color: #f02334;
+    left: -6%;
+    font-size: 25px;
+    z-index: 15;
+    /* background-color: #fff; */
+    text-align: right;
+    justify-content: center;
+    vertical-align: center;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.delete_command
+{
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    font-size:15px ;
+    transform: translateX(-50%);
+    color: rgb(238, 171, 180);
+    font-family: 'Kanit';
+    font-weight: 400;
+    word-wrap: break-word;
+    width: 100%;
+    text-align: center;
+    height: 250px;
+}

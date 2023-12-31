@@ -1,0 +1,246 @@
+
+.allPsswds
+{
+    position: absolute;
+    height: 580px;
+    padding-top: 40px;
+    width: 100%;
+    top: 13%;
+    transform: translateY(580px);
+    transition: 0.5s;
+    left: 0;
+    background: #00081fa2;
+    backdrop-filter: blur(10px);
+    overflow: auto;
+    overflow-x: hidden;
+    z-index: -1;
+    opacity: 0;
+}
+
+.allPsswds.active
+{
+    position: absolute;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    height: 500px;
+    width: 100%;
+    top: 13%;
+    transform: translateY(0);
+    transition: 0.5s;
+    left: 0;
+    background: #00081fa2;
+    backdrop-filter: blur(10px);
+    z-index: 15;
+    overflow: auto;
+    overflow-x: hidden;
+    display: block;
+    z-index: 15;
+    opacity: 1;
+}
+.allPsswds.active.blurHover
+{
+    position: absolute;
+    padding-top: 40px;
+    height: 580px;
+    width: 100%;
+    top: 13%;
+    transform: translateY(0);
+    transition: 0.5s;
+    left: 0;
+    background: #00081fa2;
+    backdrop-filter: blur(10px);
+    z-index: 15;
+    overflow: auto;
+    overflow-x: hidden;
+    display: block;
+    z-index: 14;
+    filter: blur(5px);
+    opacity: 1;
+}
+.allPsswds::-webkit-scrollbar
+{
+    background: transparent;
+}
+
+
+.ALL_psswdBlobCntSng
+{
+    position: relative;
+    height: 60px;
+    width: 100%;
+    background: #00081fa2;
+    left: 0%;
+    top: 7%;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    -webkit-tap-highlight-color: transparent;
+
+}
+.ALL_psswdBlobCntSngImg
+{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: #111;
+    background: url("instagram\ logo.png");
+    background-size: cover;
+    mix-blend-mode: screen;
+    
+}
+.ALL_psswdBlobCntSngName
+{
+    position: absolute;
+    top: 5px;
+    left: 20%;
+    color: #FD9490;
+    font-family: 'Kanit';
+    font-weight: 700;
+    
+}
+.ALL_psswdBlobCntSngEmail
+{
+    position: absolute;
+    top: 30px;
+    left: 20%;
+    color: #ffdedd;
+    font-family: 'Kanit';
+    font-weight: 700;
+    font-size: 12px;
+    word-wrap: normal; 
+}
+#ALL_psswdBlobCntSngCopyIcn
+{
+    position: absolute;
+    top: 17px;
+    left: 85%;
+    color: #00ff88;
+    font-weight: 700;
+    font-size: 20px;
+    word-wrap: normal; 
+}
+
+#ALL_psswdBlobCntSngEditIcn
+{
+    position: absolute;
+    top: 17px;
+    left: 92%;
+    color: #f0239b;
+    font-weight: 700;
+    font-size: 20px;
+    word-wrap: normal; 
+}
+#CrossAllPwdDown
+{
+    position: absolute;
+    top:15%;
+    left: 89%;
+    transform: translateX(-50%);
+    color: #ffc;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 20;
+    pointer-events: all;
+    display: none;
+    -webkit-tap-highlight-color : transparent;
+}
+
+/* =========================================== SEARCH BAR STYLES ================================================== */
+
+#searchBarPwdCollec
+{
+    position: absolute;
+    height: 50px;
+    top: 94px;
+    padding-right: 35px;
+    padding-left: 25px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    width: 70%;
+    left: 6.5%;
+    border-radius: 20px;
+    font-weight: 700;
+    background: #111111fa;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 20px;
+    -webkit-tap-highlight-color: transparent;
+    display: none;
+    z-index: 17;
+}
+
+
+
+@keyframes colorChange {
+    0%
+    {
+        filter: hue-rotate(0deg);
+    }
+    20%
+    {
+        filter: hue-rotate(5deg);
+    }
+    40%
+    {
+        filter: hue-rotate(10deg);
+    }
+    60%
+    {
+        filter: hue-rotate(15deg);
+    }
+    80%
+    {
+        filter: hue-rotate(20deg);
+    }
+    100%
+    {
+        filter: hue-rotate(30deg);
+    }
+}
+.maskPwdCollec
+{
+   position: absolute;
+    height: 60px;
+    top: 90px;
+    border: none;
+    outline: none;
+    width: 74%;
+    left: 5%;
+    border-radius: 20px;
+    font-weight: 700;
+    text-indent: 40px; 
+    background: #36D1DC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow: 0 20px 20px #000;
+    color: #fff;
+    z-index: 16;
+    display: none;
+    animation: colorChange 9s linear infinite;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#searchBarPwdCollec::placeholder
+{
+    color: #fff;
+    font-family: 'Kanit';
+    mix-blend-mode: screen;
+    font-size: 17px;
+
+}
+ion-icon
+{
+    position: absolute;
+    top: 108px;
+    left: 30px;
+    font-size: 20px;
+    color: #ffc;
+    z-index: 10;
+    display: none;
+    -webkit-tap-highlight-color: transparent;
+
+}

@@ -1,0 +1,344 @@
+
+.regTxt{
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffc;
+    font-size: 42px;
+    font-family: 'Gugi', cursive;
+}
+
+.usrEmailInpReg
+{
+    position: absolute;
+    height: 50px;
+    top: 200px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    width: 76%;
+    max-width: 76%;
+    left: 6.5%;
+    border-radius: 20px;
+    font-weight: 700;
+    background: #111111fa;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 20px;
+
+    z-index: 15;
+    white-space: -65px;
+}
+.usrEmailMaskReg
+{
+   position: absolute;
+    height: 60px;
+    top: 196px;
+    border: none;
+    outline: none;
+    width: 80%;
+    left: 5%;
+    border-radius: 20px;
+    font-weight: 700;
+    text-indent: 40px; 
+    background: #3A1C71;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+    color: #fff;
+    z-index: 12;
+    
+}
+
+.usrEmailInpReg::placeholder
+{
+    color: #fff;
+    font-size: 19px;
+    font-family: 'Kanit';
+    mix-blend-mode: screen;
+
+}
+#validEmail
+{
+    position: absolute;
+    top: 210px;
+    left: 73%;
+    transition: 0.5s;
+    transform: translateX(150px);
+    z-index: 12;
+    font-size: 24px;
+    color: #00ff95;
+}
+
+
+.usrNameInpReg
+{
+    position: absolute;
+    height: 50px;
+    padding-right: 20px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    top: 280px;
+    border: none;
+    outline: none;
+    width: 76%;
+    left: 6.5%;
+    border-radius: 20px;
+    font-weight: 700; 
+    background: #111111fa;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    transition: 0.5s;
+    font-size: 20px;
+    z-index: 15;
+}
+.usrNameMaskReg
+{
+   position: absolute;
+    height: 60px;
+    top: 276px;
+    border: none;
+    outline: none;
+    width: 80%;
+    left: 5%;
+    border-radius: 20px;
+    font-weight: 700;
+    text-indent: 40px; 
+    background: #283c86;  /* fallback for old browsers */
+    background: linear-gradient(to right, #45a247, #f8e800); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    z-index: 12;
+    
+}
+
+.usrNameInpReg::placeholder
+{
+    color: #fff;
+    font-size: 19px;
+    font-family: 'Kanit';
+    mix-blend-mode: screen;
+
+}
+
+#validUser
+{
+    position: absolute;
+    top: 290px;
+    left: 73%;
+    transition: 0.5s;
+    transform: translateX(150px);
+    z-index: 12;
+    font-size: 24px;
+    color: #00ff95;
+}
+
+
+.usrPwdInpReg
+{
+    position: absolute;
+    height: 50px;
+    padding-right: 80px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    top: 360px;
+    border: none;
+    outline: none;
+    width: 86%;
+    left: 6.5%;
+    border-radius: 20px;
+    font-weight: 700; 
+    transition: 0.5s;
+    background: #111111fa;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 20px;
+    z-index: 15;
+}
+.usrPwdMaskReg
+{
+   position: absolute;
+    height: 60px;
+    top: 356px;
+    border: none;
+    outline: none;
+    width: 90%;
+    left: 5%;
+    border-radius: 20px;
+    font-weight: 700;
+    text-indent: 40px; 
+    background: #000046;  /* fallback for old browsers */
+    background: linear-gradient(to right, #1CB5E0, #ff00b3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    z-index: 12;
+    
+}
+
+.usrPwdInpReg::placeholder
+{
+    color: #fff;
+    font-size: 19px;
+    font-family: 'Kanit';
+    mix-blend-mode: screen;
+
+}
+#GenPwd
+{
+    position: relative;
+    font-size: 20px;
+    color: #ffc;
+    z-index: 15;
+    top: 375px;
+    left: 73%;
+    cursor: pointer;
+    /* animation: moveCharm 1s linear forwards; */
+}
+@keyframes moveCharm {
+    0%
+    {
+        transform: translateX(0px);
+    }
+    50%
+    {
+        transform: translateX(-200px);
+    }
+}
+.passwordHideMask
+{
+    position: relative;
+    height: 40px;
+    top: 364px;
+    border: none;
+    outline: none;  
+    width: 250px;
+    float: left;
+    left: 70%;
+    background: #b90707;
+    z-index: 16;
+    display: none;
+}
+#SeePwd
+{
+    position: absolute;
+    font-size: 20px;
+    color: rgb(0, 255, 85);
+    z-index: 15;
+    top: 375px;
+    left: 83%;
+    cursor: pointer;
+}
+
+.usrPwdConfInpReg
+{
+    position: absolute;
+    height: 50px;
+    top: 440px;
+    padding-right: 40px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    width: 86%;
+    left: 6.5%;
+    border-radius: 20px;
+    font-weight: 700;
+    background: #111111fa;
+    backdrop-filter: blur(10px);
+    transition: 0.5s;
+    color: #fff;
+    font-size: 20px;
+    z-index: 15;
+}
+.usrPwdConfMaskReg
+{
+   position: absolute;
+    height: 60px;
+    top: 436px;
+    border: none;
+    outline: none;
+    width: 90%;
+    left: 5%;
+    border-radius: 20px;
+    font-weight: 700;
+    text-indent: 40px; 
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #b3ffab 0%, #12fff7 100%);
+    
+    color: #fff;
+    z-index: 12;
+    
+}
+
+.usrPwdConfInpReg::placeholder
+{
+    color: #fff;
+    font-size: 19px;
+    font-family: 'Kanit';
+    mix-blend-mode: screen;
+
+}
+
+#SeePwdConf
+{
+    position: absolute;
+    font-size: 20px;
+    color: rgb(0, 255, 85);
+    z-index: 15;
+    top: 455px;
+    left: 83%;
+    cursor: pointer;
+}
+
+
+
+
+.submitEntryCardReg
+{
+    height: 60px;
+    width: 40%;
+    position: absolute;
+    top: 85%;
+    left: 73%;
+    transform: translateX(-50%);
+    z-index: 15;
+    font-size: 24px;
+    font-family: 'Kanit';
+    border-radius: 25px;
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#pull_up
+{
+    position: absolute;
+    color: #ffc;
+    font-size: 2em;
+    top: 3%;
+    left: 3%;
+    border-radius: 50%;
+
+
+}
+.ErrorReg
+{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    font-size:15px ;
+    transform: translateX(-50%);
+    color: #ff0022;
+    font-family: 'Kanit';
+    font-weight: 400;
+    word-wrap: break-word;
+    width: 100%;
+    text-align: center;
+    height: 250px;
+}

@@ -1,0 +1,61 @@
+
+.submitEntryCardLogout
+{
+    height: 60px;
+    width: 40%;
+    position: relative;
+    top: 75%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 15;
+    font-size: 24px;
+    font-family: 'Kanit';
+    border-radius: 25px;
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+.LogoutTxt{
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffc;
+    font-size: 42px;
+    font-family: 'Gugi', cursive;
+}
+
+#reEnter
+{
+    position: absolute;
+    color: #ffc;
+    font-size: 2em;
+    top: 5%;
+    transform: translateX(-50%);
+    left: 90%;
+    border-radius: 50%;
+
+
+}
+
+
+#profilePicData {
+	border: 1px solid #ffc;
+	border-radius: 50%;
+	padding: 7px;
+    height: 87px;
+    width: 87px;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: scale(2);
+    transform: translateX(-50%);
+    cursor: pointer;
+    background-size: cover;
+
+}
+

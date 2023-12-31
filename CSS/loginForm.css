@@ -1,0 +1,177 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&family=Gugi&family=Kanit:wght@300&family=Prompt:wght@300&family=Reenie+Beanie&family=Silkscreen&family=VT323&family=Zeyada&display=swap');
+
+.loginTxt{
+    position: absolute;
+    top: -1%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffc;
+    font-size: 42px;
+    font-family: 'Gugi', cursive;
+}
+
+.usrEmailInp
+{
+    position: absolute;
+    height: 50px;
+    top: 110px;
+    padding-right: 35px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    width: 86%;
+    left: 6.5%;
+    border-radius: 20px;
+    font-weight: 700;
+    background: #111111fa;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 20px;
+    z-index: 15;
+}
+.usrEmailMask
+{
+   position: absolute;
+    height: 60px;
+    top: 106px;
+    border: none;
+    outline: none;
+    width: 90%;
+    left: 5%;
+    border-radius: 20px;
+    font-weight: 700;
+    text-indent: 40px; 
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+
+    color: #fff;
+    z-index: 12;
+    
+}
+
+.usrEmailInp::placeholder
+{
+    color: #fff;
+    font-size: 19px;
+    font-family: 'Kanit';
+    mix-blend-mode: screen;
+
+}
+
+
+
+.usrPwdInp
+{
+    position: absolute;
+    height: 50px;
+    top: 200px;
+    padding-right: 35px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    width: 86%;
+    left: 6.5%;
+    border-radius: 20px;
+    font-weight: 700;
+    background: #111111fa;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 20px;
+    z-index: 15;
+}
+.usrPwdMask
+{
+   position: absolute;
+    height: 60px;
+    top: 196px;
+    border: none;
+    outline: none;
+    width: 90%;
+    left: 5%;
+    border-radius: 20px;
+    font-weight: 700;
+    text-indent: 40px; 
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #b3ffab 0%, #12fff7 100%);
+
+    color: #fff;
+    z-index: 12;
+    
+}
+
+.usrPwdInp::placeholder
+{
+    color: #fff;
+    font-size: 19px;
+    font-family: 'Kanit';
+    mix-blend-mode: screen;
+
+}
+
+.submitEntryCard
+{
+    height: 60px;
+    width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 73%;
+    transform: translateX(-50%);
+    z-index: 15;
+    font-size: 24px;
+    font-family: 'Kanit';
+    border-radius: 25px;
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: 700;
+}
+
+#pull_down
+{
+    position: absolute;
+    color: #ffc;
+    font-size: 2em;
+    top: 90%;
+    left: 90%;
+    border-radius: 50%;
+
+
+}
+
+.ErrorLog
+{
+    position: absolute;
+    top: 11%;
+    left: 50%;
+    font-size:15px ;
+    transform: translateX(-50%);
+    color: #ffe600;
+    font-family: 'Kanit';
+    font-weight: 400;
+    word-wrap: break-word;
+    width: 100%;
+    text-align: center;
+    height: 250px;
+}
+
+.forgot_password_login_page_link
+{
+    position: absolute;
+    top: 60%;
+    left: 70%;
+    font-size:20px ;
+    transform: translateX(-50%);
+    color: #ffe600;
+    text-shadow: 0 0 10px #ffe600;
+    font-family: 'Kanit';
+    font-weight: 400;
+    word-wrap: break-word;
+    width: 100%;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+}

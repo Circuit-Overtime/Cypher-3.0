@@ -1,0 +1,540 @@
+
+.addCard
+{
+    position: absolute;
+    height: 580px;
+    width: 100%;
+    top: 13%;
+    transform: translateY(585px);
+    transition: 0.5s;
+    left: 0;
+    background: #111111a2;
+    backdrop-filter: blur(10px);
+    z-index: -1;
+    opacity: 0;
+}
+.addCard.active
+{
+    position: absolute;
+    height: 580px;
+    width: 100%;
+    top: 13%;
+    transform: translateY(0px);
+    transition: 0.5s;
+    left: 0;
+    background: #111111a2;
+    backdrop-filter: blur(10px);
+
+    z-index: 15;
+    opacity: 1;
+}
+
+
+.whiteBarCard
+{
+    position: absolute;
+    top: 0.5%;
+    width: 30%;
+    height: 5px;
+    border-radius: 10px;
+    left: 35%;
+    background-color: #21D4FD;
+    z-index: 15;
+
+}
+
+.suggestNavCard
+{
+    position: relative;
+    height: 60px;
+    width: 100%;
+    left:0;
+    background: transparent;
+    display: flex;
+    top: 5%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    transition: 0.5s;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+
+
+}
+.suggestNavCard::-webkit-scrollbar
+{
+    background-color: transparent;
+}
+.suggestNavCard .customCard,
+.suggestNavCard .sbi,
+.suggestNavCard .pnb
+{
+    position: relative;
+    width: 80px;
+    top: 53%;
+    transform: translateY(-50%);
+    margin-right: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Kanit';
+    font-weight: 700;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    height: 30px;
+    left: 2%;
+    border-radius: 25px;
+    color: #fff;
+    z-index: 1;
+
+}
+.suggestNavCard .hdfc
+{
+    position: relative;
+    width: 80px;
+    top: 53%;
+    transform: translateY(-50%);
+    margin-right: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Kanit';
+    font-weight: 700;
+    background-color: #4158D0;
+    background-color: #00DBDE;
+    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+    height: 30px;
+    left: 2%;
+    border-radius: 25px;
+    color: #fff;
+    z-index: 1;
+}
+
+.suggestNavCard .bandhan
+{
+    position: relative;
+    width: 95px;
+    top: 53%;
+    transform: translateY(-50%);
+    margin-right: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Kanit';
+    font-weight: 700;
+    background-color: #FFE53B;
+    background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+    height: 30px;
+    left: 2%;
+    border-radius: 25px;
+    color: #fff;
+    z-index: 1;
+}
+.suggestNavCard .axis
+{
+    background-color: #FEE140;
+    background-image: linear-gradient(90deg, #FEE140 0%, #FA709A 100%);
+    position: relative;
+    width: 80px;
+    top: 53%;
+    transform: translateY(-50%);
+    margin-right: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Kanit';
+    font-weight: 700;;
+    height: 30px;
+    left: 2%;
+    border-radius: 25px;
+    color: #fff;
+    z-index: 1;
+
+}
+.suggestNavCard .union
+{
+    position: relative;
+    width: 80px;
+    top: 53%;
+    transform: translateY(-50%);
+    margin-right: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Kanit';
+    font-weight: 700;
+    background-color: #FFE53B;
+    background-color: #FFE53B;
+    background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+    height: 30px;
+    left: 2%;
+    border-radius: 25px;
+    color: #fff;
+    z-index: 1;
+}
+
+
+
+.suggestNavCard .canara,
+.suggestNavCard .iob
+{
+    position: relative;
+    width: 120px;
+    top: 53%;
+    transform: translateY(-50%);
+    margin-right: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Kanit';
+    font-weight: 700;
+    background-color: #21D4FD;
+    background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+    z-index: 1;
+    height: 30px;
+    color: #fff;
+    left: 2%;
+    border-radius: 25px;
+}
+
+
+.suggestNavCard .customCard::before,
+.suggestNavCard .sbi::before,
+.suggestNavCard .pnb::before,
+.suggestNavCard .hdfc::before,
+.suggestNavCard .axis::before,
+.suggestNavCard .union::before,
+.suggestNavCard .iob::before,
+.suggestNavCard .canara::before,
+.suggestNavCard .bandhan::before,
+.suggestNavCard .iob::before
+{
+    content: '';
+    background: #030303;
+    backdrop-filter: blur(25px);
+    position: absolute;
+    height: 82%;
+    width: 90%;
+    border-radius: 25px;
+    z-index: -2;
+    top: 8%;
+    left: 5%;
+    
+}
+
+.selectedServiceCard
+{
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-family: 'Kanit';
+    font-weight: 700;
+    font-size: 20px;
+}
+
+/* INPUTS FROM USER  */
+
+.usernameInpCard
+{
+    position: absolute;
+    height: 50px;
+    top: 175px;
+    border: none;
+    outline: none;
+    width: 86%;
+    left: 6.5%;
+    border-radius: 20px;
+    font-weight: 700;
+    text-indent: 40px; 
+    background: #111111fa;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 20px;
+    z-index: 15;
+}
+.maskNameCard
+{
+   position: absolute;
+    height: 60px;
+    top: 171px;
+    border: none;
+    outline: none;
+    width: 90%;
+    left: 5%;
+    border-radius: 20px;
+    font-weight: 700;
+    text-indent: 40px; 
+    background-color: #00DBDE;
+    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+    color: #fff;
+    z-index: 12;
+}
+
+.usernameInpCard::placeholder
+{
+    color: #fff;
+    font-size: 19px;
+    font-family: 'Kanit';
+    mix-blend-mode: screen;
+
+}
+
+.passwordInpCard
+{
+    position: absolute;
+    height: 50px;
+    top: 254px;
+    border: none;
+    outline: none;
+    width: 31%;
+    left: 6.5%;
+    border-radius: 20px;
+    font-weight: 700;
+    text-indent: 40px; 
+    background: #111111fa;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 20px;
+    z-index: 15;
+}
+.maskPassCard
+{
+   position: absolute;
+    height: 60px;
+    top: 250px;
+    border: none;
+    outline: none;
+    width: 35%;
+    left: 5%;
+    border-radius: 20px;
+    font-weight: 700;
+    text-indent: 40px; 
+    background-color: #85FFBD;
+    background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+
+    color: #fff;
+    z-index: 12;
+
+}
+
+.passwordInpCard::placeholder
+{
+    color: #fff;
+    font-size: 19px;
+    font-family: 'Kanit';
+    mix-blend-mode: screen;
+
+}
+
+
+.DateInpCard
+{
+    position: absolute;
+    height: 50px;
+    top: 254px;
+    border: none;
+    outline: none;
+    width: 45%;
+    left: 47%;
+    border-radius: 20px;
+    font-weight: 700;
+    background: #111111fa;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 20px;
+    z-index: 15;
+    text-indent: 50px;
+}
+.maskDateCard
+{
+   position: absolute;
+    height: 60px;
+    top: 250px;
+    border: none;
+    outline: none;
+    width: 50%;
+    left: 45%;
+    border-radius: 20px;
+    font-weight: 700;
+    text-indent: 40px; 
+    background: #FF416C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    z-index: 12;
+
+}
+
+.DateInpCard::placeholder
+{
+    color: #fff;
+    font-size: 19px;
+    font-family: 'Kanit';
+    text-align: center;
+    position: absolute;
+    left: 40%;
+    transform: translateX(-50%);
+    mix-blend-mode: screen;
+
+}
+
+
+
+#GenPwdCard
+{
+    position: absolute;
+    font-size: 20px;
+    color: #ffc;
+    z-index: 15;
+    top: 270px;
+    left: 83%;
+    -webkit-tap-highlight-color: transparent;
+}
+.emailInpCard
+{
+    position: absolute;
+    height: 50px;
+    top: 340px;
+    border: none;
+    outline: none;
+    width: 86%;
+    left: 6.5%;
+    border-radius: 20px;
+    font-weight: 700;
+    padding-right: 20px;
+    padding-left: 30px;
+    box-sizing: border-box; 
+    background: #111111fa;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 20px;
+    z-index: 15;
+}
+.maskEmailCard
+{
+   position: absolute;
+    height: 60px;
+    top: 336px;
+    border: none;
+    outline: none;
+    width: 90%;
+    left: 5%;
+    border-radius: 20px;
+    font-weight: 700;
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+
+    color: #fff;
+    z-index: 12;
+    
+}
+
+.emailInpCard::placeholder
+{
+    color: #fff;
+    font-size: 19px;
+    font-family: 'Kanit';
+    mix-blend-mode: screen;
+
+}
+
+.submitEntryCard
+{
+    height: 60px;
+    width: 90%;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+    font-size: 24px;
+    font-family: 'Kanit';
+    border-radius: 25px;
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+
+}
+
+.submitEntryCard i
+{
+    color: rgb(0, 140, 255);
+    font-size: 24px;
+    position: relative;
+    transform-origin: center;
+    transform: scale(2.8);
+    font-weight: 100;
+    
+}
+
+#caretDownCard
+{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffc;
+    font-size: 24px;
+    -webkit-tap-highlight-color: transparent;
+}
+.cardDetailsEditBlock
+{   
+    position: absolute;
+    top: 93%;
+    width: 95%;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffc;
+    opacity: 65%;
+    font-size: 12px;
+    font-family: 'Kanit';
+}
+
