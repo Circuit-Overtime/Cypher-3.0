@@ -12,10 +12,27 @@ Happy exploring! 🚀🔐
 
 ## Contributors
 
-- ![Your Name](https://github.com/CSE-Anwesha.png?size=40) [Your Name](https://github.com/CSE-Anwesha)
-- ![Contributor 2](https://github.com/DeyKabita.png?size=40) [Contributor 2](https://github.com/DeyKabita)
-- ![Contributor 3](https://github.com/Galahad19.png?size=40) [Contributor 3](https://github.com/Galahad19)
-- ![Contributor 3](https://github.com/Udaymaji.png?size=40) [Contributor 3](https://github.com/Udaymaji)
+<div style="display: flex; justify-content: center; align-items: center;">
+  <div style="text-align: center;">
+    <img src="https://github.com/CSE-Anwesha.png?size=30" alt="Anwesha" style="margin-right: 10px;">
+    <a href="https://github.com/CSE-Anwesha">Anwesha</a>
+  </div>
+  
+  <div style="text-align: center;">
+    <img src="https://github.com/DeyKabita.png?size=30" alt="Kabita" style="margin-right: 10px;">
+    <a href="https://github.com/DeyKabita">Kabita</a>
+  </div>
+  
+  <div style="text-align: center;">
+    <img src="https://github.com/Galahad19.png?size=30" alt="Shinjan" style="margin-right: 10px;">
+    <a href="https://github.com/Galahad19">Shinjan</a>
+  </div>
+  
+  <div style="text-align: center;">
+    <img src="https://github.com/Udaymaji.png?size=30" alt="Uday" style="margin-right: 10px;">
+    <a href="https://github.com/Udaymaji">Uday</a>
+  </div>
+</div>
 
 ## Technologies Used
 
