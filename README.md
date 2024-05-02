@@ -12,27 +12,9 @@ Happy exploring! 🚀🔐
 
 ## Contributors
 
-<div style="display: flex; justify-content: center; align-items: center;">
-  <div style="text-align: center;">
-    <img src="https://github.com/CSE-Anwesha.png?size=30" alt="Anwesha" style="margin-right: 10px;">
-    <a href="https://github.com/CSE-Anwesha">Anwesha</a>
-  </div>
-  
-  <div style="text-align: center;">
-    <img src="https://github.com/DeyKabita.png?size=30" alt="Kabita" style="margin-right: 10px;">
-    <a href="https://github.com/DeyKabita">Kabita</a>
-  </div>
-  
-  <div style="text-align: center;">
-    <img src="https://github.com/Galahad19.png?size=30" alt="Shinjan" style="margin-right: 10px;">
-    <a href="https://github.com/Galahad19">Shinjan</a>
-  </div>
-  
-  <div style="text-align: center;">
-    <img src="https://github.com/Udaymaji.png?size=30" alt="Uday" style="margin-right: 10px;">
-    <a href="https://github.com/Udaymaji">Uday</a>
-  </div>
-</div>
+<a href="https://github.com/Circuit-Overtime/Cypher-3.0/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Circuit-Overtime/Cypher-3.0" />
+</a>
 
 ## Technologies Used
 
