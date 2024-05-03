@@ -90,14 +90,17 @@ document.getElementById("caretDownPsswd").addEventListener("click",() => {
     document.querySelector(".autoGenPassword").classList.toggle("active");
 })
 
-document.getElementById("navBarBtnsUsr").addEventListener("click" ,() => {
+document.getElementById("profile_logo_nav").addEventListener("click" ,() => {
   document.querySelector(".profileContainer").classList.add("active");
 })
 
-document.getElementById("navBarBtnsUsrDesk").addEventListener("click" ,() => {
+document.getElementById("profile_logo_nav").addEventListener("click" ,() => {
   document.querySelector(".profileContainer").classList.add("active");
 })
 
+document.getElementById("profile_logo_top_nav").addEventListener("click" ,() => {
+  document.querySelector(".profileContainer").classList.add("active");
+})
 
 
 document.getElementById("profile_logo").addEventListener("click" ,() => {

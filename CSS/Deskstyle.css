@@ -295,7 +295,7 @@
     }
     
     
-    .top-navBar #navBarBtnsUsrDesk
+    /* .top-navBar #navBarBtnsUsrDesk
     {
         position: absolute;
         top: 50%;
@@ -304,6 +304,22 @@
         left: 85%;
         font-size: 24px;
         
+    
+    } */
+    .top-navBar #profile_logo_top_nav
+    {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgb(1, 253, 136);
+        left: 87%;
+        font-size: 24px;
+        color: rgb(255, 0, 55);
+        
+        height: 25px;
+        width: 25px;
+        font-size: 24px;
+        display: block;
     
     }
 
@@ -385,7 +401,9 @@
     }
     
     
-    .bottom-nav #navBarBtnsUsr
+
+    
+    .bottom-nav #profile_logo_nav
     {
         position: absolute;
         top: 50%;
@@ -394,8 +412,8 @@
         left: 85%;
         font-size: 24px;
         display : none;
-        
-    
+        height: 25px;
+        width: 25px;
     }
     
     
@@ -498,7 +516,7 @@
         width: 350px;
         height: 650px;
         background: transparent;
-        background: url("https://firebasestorage.googleapis.com/v0/b/psswdmanager-68a29.appspot.com/o/OfficialFiles%2FnoData.png?alt=media&token=2c1168c1-0c83-44be-8ec4-95748fc15806");
+        background: url("https://firebasestorage.googleapis.com/v0/b/psswdmanager-68a29.appspot.com/o/OfficialFiles%2FnoDataDesk.png?alt=media&token=966fa008-2854-4766-b419-e30fed458595");
         background-size: cover;
         top: -76%;
         left: 50%;
@@ -510,17 +528,17 @@
     .noDataPatch.noDataPatchVisible
     {
         position: absolute;
-        width: 350px;
+        width: 850px;
         height: 650px;
         background: transparent;
-        background: url("https://firebasestorage.googleapis.com/v0/b/psswdmanager-68a29.appspot.com/o/OfficialFiles%2FnoData.png?alt=media&token=2c1168c1-0c83-44be-8ec4-95748fc15806");
+        background: url("https://firebasestorage.googleapis.com/v0/b/psswdmanager-68a29.appspot.com/o/OfficialFiles%2FnoDataDesk.png?alt=media&token=966fa008-2854-4766-b419-e30fed458595");
         background-size: cover;
         top: -82%;
-        left: 8%;
+        left: 28%;
         transition: 0.5s;
         transform: translateX(-50%);
         opacity: 1;
-        z-index: 100;
+        z-index: 15;
     }
     .psswdBlobCntSngImg
     {

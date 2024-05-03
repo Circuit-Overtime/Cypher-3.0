@@ -135,10 +135,11 @@ body
 #signin_with_google
 {
     position: absolute;
-    height: 70px;
-    width: 70px;
+    height: 35px;
+    width: 35px;
     left: 5%;
-    top: 73%;
+    top: 50%;
+    /* transform: translateY(-400px) translateX(320px); */
     transition: 0.5s;
     background: url("https://firebasestorage.googleapis.com/v0/b/psswdmanager-68a29.appspot.com/o/OfficialFiles%2FGoogle__G__logo.svg.png?alt=media&token=9c6e22bb-dfb0-4368-89c9-2372ba57762c");
     background-size: cover;
@@ -151,10 +152,11 @@ body
 #signin_with_github
 {
     position: absolute;
-    height: 60px;
-    width: 60px;
-    left: 70%;
-    top: 88%;
+    height: 35px;
+    width: 35px;
+    left: 25%;
+    top: 50%;
+    /* transform: translateY(-555px) translateX(-250px); */
     transition: 0.5s;
     background: url("https://firebasestorage.googleapis.com/v0/b/psswdmanager-68a29.appspot.com/o/OfficialFiles%2Fgithub%20logo.png?alt=media&token=074703b5-9535-4a73-b140-fb0301630003");
     background-size: cover;

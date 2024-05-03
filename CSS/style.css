@@ -28,6 +28,20 @@
         box-shadow: 0 0 10px #ffc;
         
     }
+    .bottom-nav #profile_logo_nav
+    {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgb(255, 0, 55);
+        left: 85%;
+        font-size: 24px;
+        display: block;
+        height: 25px;
+        width: 25px;
+    
+    }
+
     .profile_logo::before
     {
         content: '';

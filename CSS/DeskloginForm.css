@@ -171,4 +171,6 @@
     width: 100%;
     text-align: center;
     -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    user-select: none;
 }

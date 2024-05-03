@@ -12,18 +12,6 @@ const firebaseConfig = {
   
     const db = firebase.firestore();
     document.getElementById("pull_up").addEventListener("click" ,() =>{
-    if(window.matchMedia("(max-width: 640px)").matches == false)
-    {
-        console.log("large screen")
-        document.getElementById("signin_with_google").style.transform = "translateY(-400px) translateX(320px)";
-        document.getElementById("signin_with_github").style.transform = "translateY(-575px) translateX(-250px)";
-    }
-    else if(window.matchMedia("(max-width: 640px)").matches == true)
-    {
-        console.log("small screen")
-        document.getElementById("signin_with_google").style.transform = "translateY(-420px) translateX(225px)";
-        document.getElementById("signin_with_github").style.transform = "translateY(-585px) translateX(-230px)";
-    }
     document.getElementById("registerForm").style.transform = "translateY(-20px)";
     document.getElementById("loginform").style.transform = "translateY(-520px)";
 
@@ -35,8 +23,6 @@ const firebaseConfig = {
 document.getElementById("pull_down").addEventListener("click" ,() =>{
     document.getElementById("registerForm").style.transform = "translateY(520px)";
     document.getElementById("loginform").style.transform = "translateY(0px)";
-    document.querySelector(".signin_with_google").style.transform = "translateY(0px) translateX(0px)"
-    document.querySelector(".signin_with_github").style.transform = "translateY(0px) translateX(0px)"
 
 })
 

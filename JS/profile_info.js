@@ -6,6 +6,12 @@ db.collection("users").doc(localStorage.getItem("CurUsername").toLowerCase()).on
     document.getElementById("profilePicData").setAttribute("src",  doc.data().user_logo);
     document.getElementById("profile_logo").style.background = `url("${doc.data().user_logo}")`
     document.getElementById("profile_logo").style.backgroundSize = "cover";
+
+    document.getElementById("profile_logo_nav").style.background = `url("${doc.data().user_logo}")`
+    document.getElementById("profile_logo_nav").style.backgroundSize = "cover";
+    document.getElementById("profile_logo_top_nav").style.background = `url("${doc.data().user_logo}")`
+    document.getElementById("profile_logo_top_nav").style.backgroundSize = "cover";
+
     document.getElementById("profile_name").innerHTML = "Hello, " + doc.data().displayName;
 })
 
