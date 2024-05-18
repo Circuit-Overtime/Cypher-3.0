@@ -70,7 +70,7 @@
         width: 100%;
         background: #00081fa2;
         left: 0%;
-        top: 7%;
+        top: 17%;
         margin-bottom: 10px;
         border-radius: 15px;
         -webkit-tap-highlight-color: transparent;
@@ -95,7 +95,7 @@
     {
         position: absolute;
         top: 5px;
-        left: 20%;
+        left: 10%;
         color: #FD9490;
         font-family: 'Kanit';
         font-weight: 700;
@@ -105,12 +105,13 @@
     {
         position: absolute;
         top: 30px;
-        left: 20%;
-        color: #ffdedd;
+        left: 10%;
+        color: #11b355;
         font-family: 'Kanit';
         font-weight: 700;
         font-size: 12px;
         word-wrap: normal; 
+        user-select: none   ;
     }
     #ALL_psswdBlobCntSngCopyIcn
     {

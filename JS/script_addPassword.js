@@ -53,8 +53,11 @@ function submitServiceAddPassword(self)
 
 function addToDBLogin(loginUsername, loginPassword, loginEmail, serviceAddPassword, appendLocation)
 {
-  console.log(appendLocation);
+  if(ViewMode != "Editable")
+  {
+  console.log(appendLocation+"from addpass");
   selected_service = "Custom";
+
 
   document.getElementById("successLoaderContainer").classList.add("OpacityActive");
   document.getElementById("addPsswd").classList.toggle("active");
@@ -62,9 +65,9 @@ function addToDBLogin(loginUsername, loginPassword, loginEmail, serviceAddPasswo
     let timestamp = new Date().getTime();
     uniqueTimestampId = timestamp+"_Login"
     UsrNameDirectory = localStorage.getItem("CurUsername")+"/";
-    appendLocation == null ? appendLocation = UsrNameDirectory+uniqueTimestampId : appendLocation = UsrNameDirectory+appendLocation;
+    // appendLocation == null ? appendLocation = UsrNameDirectory+uniqueTimestampId : appendLocation = UsrNameDirectory+appendLocation;
     // appendLocation = UsrNameDirectory+appendLocation || UsrNameDirectory + uniqueTimestampId;
-    console.log("New Append Location " + appendLocation);
+    // console.log("New Append Location " + appendLocation);
 
       let numberOfTilesSpawned = document.querySelectorAll(".tile").length;
   
@@ -73,14 +76,18 @@ function addToDBLogin(loginUsername, loginPassword, loginEmail, serviceAddPasswo
        document.querySelectorAll(".tile")[n].click();
       }, 1300 );
       
- 
-    firebase.database().ref(appendLocation).push({
-        username: loginUsername,
-        email: loginEmail,
-        password : loginPassword,
+      const randomArray = new Uint8Array(16);
+      crypto.getRandomValues(randomArray);
+      const secretKey = CryptoJS.enc.Base64.stringify(CryptoJS.lib.WordArray.create(randomArray));
+      
+    firebase.database().ref(UsrNameDirectory + uniqueTimestampId).set({
+        username: CryptoJS.AES.encrypt(loginUsername, secretKey).toString(),
+        email: CryptoJS.AES.encrypt(loginEmail, secretKey).toString(),
+        password : CryptoJS.AES.encrypt(loginPassword, secretKey).toString(),
         service : serviceAddPassword,
         typeOfData : String(uniqueTimestampId.split("_")[1]),
-        unique_id : String(uniqueTimestampId)
+        unique_id : String(uniqueTimestampId),
+        sk : secretKey,
       }, 
       
     
@@ -100,6 +107,8 @@ function addToDBLogin(loginUsername, loginPassword, loginEmail, serviceAddPasswo
          
         }
       });
+    }
 }
+
 
 

@@ -1,6 +1,6 @@
 globalThis.last_fetched_unique_id;
 globalThis.blockCounter = 0;
-globalThis.ViewMode = "Editable"; //ReadOnly || Editable || Editing
+globalThis.ViewMode = "ReadOnly"; //ReadOnly || Editable || Editing
 const chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var passwordLength = 8;
 var generated_password = "";
@@ -431,25 +431,26 @@ function getDataOfUserCollect()
               break;
           }
 
-          DataAddTagLoginCollec = `<div class="ALL_psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard}"  >
+          DataAddTagLoginCollec = `<div class="ALL_psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${decrypt(Object.values(data)[i].username,Object.values(data)[i].sk) +"   "+decrypt(Object.values(data)[i].password, Object.values(data)[i].sk)+"   "+decrypt(Object.values(data)[i].email, Object.values(data)[i].sk)+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard}"  >
           <div class="ALL_psswdBlobCntSngImg" style="background-image : url('${image_url}');"></div>
+          
           <div class="ALL_psswdBlobCntSngName">${(Object.values(data)[i].service) == "Custom" ? "Login Details " : "Login Details of "+(Object.values(data)[i].service)} </div>
-          <div class="ALL_psswdBlobCntSngEmail">${Object.values(data)[i].email}</div>
-          <span class="InfoContainer" style="display: none;">Login Details ${(Object.values(data)[i].service)} ${Object.values(data)[i].email}</span>
+          <div class="ALL_psswdBlobCntSngEmail">${decrypt(Object.values(data)[i].email, Object.values(data)[i].sk)}</div>
+          <span class="InfoContainer" style="display: none;">Login Details ${(Object.values(data)[i].service)} ${decrypt(Object.values(data)[i].email, Object.values(data)[i].sk)}</span>
           </div>`
 
-          DataAddTagCardCollec = `<div class="ALL_psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard}" >
+          DataAddTagCardCollec = `<div class="ALL_psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+decrypt(Object.values(data)[i].cardNumber,Object.values(data)[i].sk_card)+"   "+decrypt(Object.values(data)[i].cardExpiry, Object.values(data)[i].sk_card)+"   "+decrypt(Object.values(data)[i].cardCVV, Object.values(data)[i].sk_card)+"   "+decrypt(Object.values(data)[i].cardHolderName, Object.values(data)[i].sk_card)+"   "+Object.values(data)[i].serviceCard+"   "+Object.values(data)[i].unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
           <div class="ALL_psswdBlobCntSngImg" style="background-image : url(${card_image_url});"></div>
-          <div class="ALL_psswdBlobCntSngName">${Object.values(data)[i].typeOfData}</div>
-          <div class="ALL_psswdBlobCntSngEmail">${String(Object.values(data)[i].cardNumber).slice(0,4) + "-****-****-****"}</div>
-          <span class="InfoContainer" style="display: none;">${Object.values(data)[i].typeOfData} ${String(Object.values(data)[i].cardNumber)} </span>
+          <p class="ALL_psswdBlobCntSngName">${Object.values(data)[i].typeOfData}</p>
+          <p class="ALL_psswdBlobCntSngEmail">${String(decrypt(Object.values(data)[i].cardNumber, Object.values(data)[i].sk_card)).slice(0,4) + "-****-****-****"} </p>
+          <span class="InfoContainer" style="display: none;"> ${Object.values(data)[i].typeOfData} ${String(decrypt(Object.values(data)[i].cardNumber, Object.values(data)[i].sk_card))} </span>
           </div>`
 
-          DataAddTagAppCollec = `<div class="ALL_psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard}" >
+          DataAddTagAppCollec = `<div class="ALL_psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+decrypt(Object.values(data)[i].AppName,Object.values(data)[i].sk_app)+"   "+decrypt(Object.values(data)[i].AppPassword,Object.values(data)[i].sk_app)+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard}" >
           <div class="ALL_psswdBlobCntSngImg" style="background-image : url(${app_image_url});"></div>
-          <div class="ALL_psswdBlobCntSngName">Password of ${Object.values(data)[i].typeOfData} --> ${Object.values(data)[i].AppName}</div>
-          <div class="ALL_psswdBlobCntSngEmail">${String(Object.values(data)[i].AppPassword).slice(0,2) + String(Object.values(data)[i].AppPassword).slice(2).replace(String(Object.values(data)[i].AppPassword).slice(2), "*".repeat(String(Object.values(data)[i].AppPassword).slice(2).length))}</div>
-          <span class="InfoContainer" style="display: none;"> ${Object.values(data)[i].AppName} </span>
+          <div class="ALL_psswdBlobCntSngName">Password of ${Object.values(data)[i].typeOfData} --> ${decrypt(Object.values(data)[i].AppName, Object.values(data)[i].sk_app)}</div>
+          <p class="psswdBlobCntSngEmail">${String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(0,2) + String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(2).replace(String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(2), "*".repeat(String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(2).length))} </p>
+          <span class="InfoContainer" style="display: none;"> ${decrypt(Object.values(data)[i].AppName,Object.values(data)[i].sk_app)} </span>
           </div>`
 
           if(Object.values(data)[i].typeOfData == "Login")
@@ -523,25 +524,25 @@ function getDataOfUserCollectMore(lastFetchedDocId)
               break;
           }
 
-          DataAddTagLoginCollec = `<div class="ALL_psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard}"  >
-          <div class="ALL_psswdBlobCntSngImg"></div>
-          <div class="ALL_psswdBlobCntSngName">${(Object.values(data)[i].service) == "Custom" ? "Login Details" : "Login Details of "+(Object.values(data)[i].service)} </div>
-          <div class="ALL_psswdBlobCntSngEmail">${Object.values(data)[i].email}</div>
-          <span class="InfoContainer" style="display: none;">Login Details ${(Object.values(data)[i].service)} ${Object.values(data)[i].email}</span>
+          DataAddTagLoginCollec = `<div class="ALL_psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${decrypt(Object.values(data)[i].username,Object.values(data)[i].sk) +"   "+decrypt(Object.values(data)[i].password, Object.values(data)[i].sk)+"   "+decrypt(Object.values(data)[i].email, Object.values(data)[i].sk)+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard}"  >
+          <div class="ALL_psswdBlobCntSngImg" style="background-image : url('${image_url}');"></div>
+          <div class="ALL_psswdBlobCntSngName">${(Object.values(data)[i].service) == "Custom" ? "Login Details " : "Login Details of "+(Object.values(data)[i].service)} </div>
+          <div class="ALL_psswdBlobCntSngEmail">${decrypt(Object.values(data)[i].email, Object.values(data)[i].sk)}</div>
+          <span class="InfoContainer" style="display: none;">Login Details ${(Object.values(data)[i].service)} ${decrypt(Object.values(data)[i].email, Object.values(data)[i].sk)}</span>
           </div>`
 
-          DataAddTagCardCollec = `<div class="ALL_psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard}" >
-          <div class="ALL_psswdBlobCntSngImg"></div>
-          <div class="ALL_psswdBlobCntSngName">${Object.values(data)[i].typeOfData}</div>
-          <div class="ALL_psswdBlobCntSngEmail">${String(Object.values(data)[i].cardNumber).slice(0,4) + "-****-****-****"}</div>
-          <span class="InfoContainer" style="display: none;">${Object.values(data)[i].typeOfData} ${String(Object.values(data)[i].cardNumber)} </span>
+          DataAddTagCardCollec = `<div class="ALL_psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+decrypt(Object.values(data)[i].cardNumber,Object.values(data)[i].sk_card)+"   "+decrypt(Object.values(data)[i].cardExpiry, Object.values(data)[i].sk_card)+"   "+decrypt(Object.values(data)[i].cardCVV, Object.values(data)[i].sk_card)+"   "+decrypt(Object.values(data)[i].cardHolderName, Object.values(data)[i].sk_card)+"   "+Object.values(data)[i].serviceCard+"   "+Object.values(data)[i].unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
+          <div class="ALL_psswdBlobCntSngImg" style="background-image : url(${card_image_url});"></div>
+          <p class="ALL_psswdBlobCntSngName">${Object.values(data)[i].typeOfData}</p>
+          <p class="ALL_psswdBlobCntSngEmail">${String(decrypt(Object.values(data)[i].cardNumber, Object.values(data)[i].sk_card)).slice(0,4) + "-****-****-****"} </p>
+          <span class="InfoContainer" style="display: none;"> ${Object.values(data)[i].typeOfData} ${String(decrypt(Object.values(data)[i].cardNumber, Object.values(data)[i].sk_card))} </span>
           </div>`
 
-          DataAddTagAppCollec = `<div class="ALL_psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard}" >
-          <div class="ALL_psswdBlobCntSngImg"></div>
-          <div class="ALL_psswdBlobCntSngName">Password of ${Object.values(data)[i].typeOfData} --> ${Object.values(data)[i].AppName}</div>
-          <div class="ALL_psswdBlobCntSngEmail">${String(Object.values(data)[i].AppPassword).slice(0,2) + String(Object.values(data)[i].AppPassword).slice(2).replace(String(Object.values(data)[i].AppPassword).slice(2), "*".repeat(String(Object.values(data)[i].AppPassword).slice(2).length))}</div>
-          <span class="InfoContainer" style="display: none;"> ${Object.values(data)[i].AppName} </span>
+          DataAddTagAppCollec = `<div class="ALL_psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+decrypt(Object.values(data)[i].AppName,Object.values(data)[i].sk_app)+"   "+decrypt(Object.values(data)[i].AppPassword,Object.values(data)[i].sk_app)+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard}" >
+          <div class="ALL_psswdBlobCntSngImg" style="background-image : url(${app_image_url});"></div>
+          <div class="ALL_psswdBlobCntSngName">Password of ${Object.values(data)[i].typeOfData} --> ${decrypt(Object.values(data)[i].AppName, Object.values(data)[i].sk_app)}</div>
+          <p class="psswdBlobCntSngEmail">${String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(0,2) + String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(2).replace(String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(2), "*".repeat(String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(2).length))} </p>
+          <span class="InfoContainer" style="display: none;"> ${decrypt(Object.values(data)[i].AppName,Object.values(data)[i].sk_app)} </span>
           </div>`
 
           if(Object.values(data)[i].typeOfData == "Login")
@@ -688,31 +689,31 @@ function getDataOfUser()
               var app_image_url = default_logo;
               break;
           }
-
-          DataAddTagLogin = `<div class="psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard+"   "+Object.values(data)[i].unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
+          
+          DataAddTagLogin = `<div class="psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${decrypt(Object.values(data)[i].username, Object.values(data)[i].sk)+"   "+decrypt(Object.values(data)[i].password,Object.values(data)[i].sk)+"   "+decrypt(Object.values(data)[i].email, Object.values(data)[i].sk)+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard+"   "+Object.values(data)[i].unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
           <div class="psswdBlobCntSngImg" style="background-image : url('${image_url}');"></div>
           <p class="psswdBlobCntSngName">${(Object.values(data)[i].service) == "Custom" ? "Login Details" : "Login Details of "+(Object.values(data)[i].service)}</p>
-          <p class="psswdBlobCntSngEmail">${Object.values(data)[i].email}</p>
+          <p class="psswdBlobCntSngEmail">${decrypt(Object.values(data)[i].email, Object.values(data)[i].sk)}</p>
           <span class="InfoContainer" style="display: none;"> Login Details ${(Object.values(data)[i].service)} ${Object.values(data)[i].email} </span>
           </div>`
 
           
 
-          DataAddTagCard = `<div class="psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard+"   "+Object.values(data)[i].unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
+          DataAddTagCard = `<div class="psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+decrypt(Object.values(data)[i].cardNumber,Object.values(data)[i].sk_card)+"   "+decrypt(Object.values(data)[i].cardExpiry, Object.values(data)[i].sk_card)+"   "+decrypt(Object.values(data)[i].cardCVV, Object.values(data)[i].sk_card)+"   "+decrypt(Object.values(data)[i].cardHolderName, Object.values(data)[i].sk_card)+"   "+Object.values(data)[i].serviceCard+"   "+Object.values(data)[i].unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
           <div class="psswdBlobCntSngImg" style="background-image : url(${card_image_url});"></div>
           <p class="psswdBlobCntSngName">${Object.values(data)[i].typeOfData}</p>
-          <p class="psswdBlobCntSngEmail">${String(Object.values(data)[i].cardNumber).slice(0,4) + "-****-****-****"} </p>
-          <span class="InfoContainer" style="display: none;"> ${Object.values(data)[i].typeOfData} ${String(Object.values(data)[i].cardNumber)} </span>
+          <p class="psswdBlobCntSngEmail">${String(decrypt(Object.values(data)[i].cardNumber, Object.values(data)[i].sk_card)).slice(0,4) + "-****-****-****"} </p>
+          <span class="InfoContainer" style="display: none;"> ${Object.values(data)[i].typeOfData} ${String(decrypt(Object.values(data)[i].cardNumber, Object.values(data)[i].sk_card))} </span>
           </div>`
 
           
           
 
-          DataAddTagApp = `<div class="psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard+"   "+Object.values(data)[i].unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
+          DataAddTagApp = `<div class="psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+decrypt(Object.values(data)[i].AppName, Object.values(data)[i].sk_app)+"   "+decrypt(Object.values(data)[i].AppPassword,Object.values(data)[i].sk_app)+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard+"   "+Object.values(data)[i].unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
           <div class="psswdBlobCntSngImg" style="background-image : url('${app_image_url}');"></div>
-          <p class="psswdBlobCntSngName">Password of ${Object.values(data)[i].typeOfData} --> ${Object.values(data)[i].AppName}</p>
-          <p class="psswdBlobCntSngEmail">${String(Object.values(data)[i].AppPassword).slice(0,2) + String(Object.values(data)[i].AppPassword).slice(2).replace(String(Object.values(data)[i].AppPassword).slice(2), "*".repeat(String(Object.values(data)[i].AppPassword).slice(2).length))} </p>
-          <span class="InfoContainer" style="display: none;"> ${Object.values(data)[i].AppName} </span>
+          <p class="psswdBlobCntSngName">Password of ${Object.values(data)[i].typeOfData} --> ${decrypt(Object.values(data)[i].AppName, Object.values(data)[i].sk_app)}</p>
+          <p class="psswdBlobCntSngEmail">${String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(0,2) + String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(2).replace(String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(2), "*".repeat(String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(2).length))} </p>
+          <span class="InfoContainer" style="display: none;"> ${decrypt(Object.values(data)[i].AppName, Object.values(data)[i].sk_app)} </span>
           </div>`
 
           if(Object.values(data)[i].typeOfData == "Login")
@@ -855,7 +856,7 @@ function getDataOfUserCont()
               break;
           }
 
-          DataAddTagLogin = `<div class="psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard+"   "+Object.values(data)[i].unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
+          DataAddTagLogin = `<div class="psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${decrypt(Object.values(data)[i].username, Object.values(data)[i].sk)+"   "+decrypt(Object.values(data)[i].password,Object.values(data)[i].sk)+"   "+decrypt(Object.values(data)[i].email,Object.values(data)[i].sk)+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard+"   "+Object.values(data)[i].unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
           <div class="psswdBlobCntSngImg" style="background-image : url('${image_url}');"></div>
           <p class="psswdBlobCntSngName">${(Object.values(data)[i].service) == "Custom" ? "Login Details" : "Login Details of "+(Object.values(data)[i].service)}</p>
           <p class="psswdBlobCntSngEmail">${Object.values(data)[i].email}</p>
@@ -864,21 +865,21 @@ function getDataOfUserCont()
 
           
 
-          DataAddTagCard = `<div class="psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard+"   "+Object.values(data)[i].unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
+          DataAddTagCard = `<div class="psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+decrypt(Object.values(data)[i].cardNumber,Object.values(data)[i].sk_card)+"   "+decrypt(Object.values(data)[i].cardExpiry, Object.values(data)[i].sk_card)+"   "+decrypt(Object.values(data)[i].cardCVV, Object.values(data)[i].sk_card)+"   "+decrypt(Object.values(data)[i].cardHolderName, Object.values(data)[i].sk_card)+"   "+Object.values(data)[i].serviceCard+"   "+Object.values(data)[i].unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
           <div class="psswdBlobCntSngImg" style="background-image : url(${card_image_url});"></div>
           <p class="psswdBlobCntSngName">${Object.values(data)[i].typeOfData}</p>
-          <p class="psswdBlobCntSngEmail">${String(Object.values(data)[i].cardNumber).slice(0,4) + "-****-****-****"} </p>
-          <span class="InfoContainer" style="display: none;"> ${Object.values(data)[i].typeOfData} ${String(Object.values(data)[i].cardNumber)} </span>
+          <p class="psswdBlobCntSngEmail">${String(decrypt(Object.values(data)[i].cardNumber, Object.values(data)[i].sk_card)).slice(0,4) + "-****-****-****"} </p>
+          <span class="InfoContainer" style="display: none;"> ${Object.values(data)[i].typeOfData} ${String(decrypt(Object.values(data)[i].cardNumber, Object.values(data)[i].sk_card))} </span>
           </div>`
 
           
           
 
-          DataAddTagApp = `<div class="psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard+"   "+Object.values(data)[i].unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
+          DataAddTagApp = `<div class="psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+decrypt(Object.values(data)[i].AppName,Object.values(data)[i].sk_app)+"   "+decrypt(Object.values(data)[i].AppPassword,Object.values(data)[i].sk_app)+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard+"   "+Object.values(data)[i].unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
           <div class="psswdBlobCntSngImg" style="background-image : url('${app_image_url}');"></div>
-          <p class="psswdBlobCntSngName">Password of ${Object.values(data)[i].typeOfData} --> ${Object.values(data)[i].AppName}</p>
-          <p class="psswdBlobCntSngEmail">${String(Object.values(data)[i].AppPassword).slice(0,2) + String(Object.values(data)[i].AppPassword).slice(2).replace(String(Object.values(data)[i].AppPassword).slice(2), "*".repeat(String(Object.values(data)[i].AppPassword).slice(2).length))} </p>
-          <span class="InfoContainer" style="display: none;"> ${Object.values(data)[i].AppName} </span>
+          <p class="psswdBlobCntSngName">Password of ${Object.values(data)[i].typeOfData} --> ${decrypt(Object.values(data)[i].AppName,Object.values(data)[i].sk_app)}</p>
+          <p class="psswdBlobCntSngEmail">${String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(0,2) + String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(2).replace(String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(2), "*".repeat(String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(2).length))} </p>
+          <span class="InfoContainer" style="display: none;"> ${decrypt(Object.values(data)[i].AppName,Object.values(data)[i].sk_app)} </span>
           </div>`
 
           if(Object.values(data)[i].typeOfData == "Login")
@@ -909,9 +910,31 @@ function getDataOfUserCont()
 }
 
 
+function getDataOfUserUpdate()
+{
+  var starCountRef = firebase.database().ref(localStorage.getItem("CurUsername")+'/');
+  starCountRef.on('child_changed', (snapshot) => {
+    document.getElementById("psswdBlobCont").innerHTML = `<div class="noDataPatch" id="noDataPatch"></div>
+    <div class="lds-ripple" id="loaderRippleForData"><div></div><div></div></div>`;
+    document.getElementById("allPsswds").innerHTML = "";
+    getDataOfUser();
+    getDataOfUserCollect();
+    const data = snapshot.val();
+    // Check if data exists
+    
+    
+    if(!data) {
+      // console.log('No data available');
+      document.getElementById("noDataPatch").classList.add("noDataPatchVisible");
+      document.getElementById("psswdBlobCont").style.overflowY = "hidden";
+    }
+  });
+  
+  
+}
 getDataOfUserCont();
 getDataOfUserCollect();
-
+getDataOfUserUpdate();
 
 
 
@@ -1123,7 +1146,22 @@ document.getElementById("editDetailsForLogin").addEventListener("click", (e) => 
       var ServiceEdit = document.getElementById("selectedServiceAddPassword").innerHTML;
       console.log(appendLocation);
       console.log(loginUsernameEdit, loginPasswordEdit, loginEmailEdit, ServiceEdit, appendLocation);
-      addToDBLogin(loginUsernameEdit, loginPasswordEdit, loginEmailEdit, ServiceEdit, appendLocation);
+      // addToDBLogin(loginUsernameEdit, loginPasswordEdit, loginEmailEdit, ServiceEdit);
+
+
+      const randomArray = new Uint8Array(16);
+      crypto.getRandomValues(randomArray);
+      const secretKey = CryptoJS.enc.Base64.stringify(CryptoJS.lib.WordArray.create(randomArray));
+      
+      firebase.database().ref(localStorage.getItem("CurUsername")+"/"+appendLocation).update({
+        username: CryptoJS.AES.encrypt(loginUsernameEdit, secretKey).toString(),
+        email: CryptoJS.AES.encrypt(loginEmailEdit, secretKey).toString(),
+        password : CryptoJS.AES.encrypt(loginPasswordEdit, secretKey).toString(),
+        service : ServiceEdit,
+        sk : secretKey,
+      }),
+      
+      
       document.getElementById("cancelEditDetails").style.opacity = "0";
       document.getElementById("caretDown").click();
     })
@@ -1270,7 +1308,20 @@ function ShowInfoforApp(appname, pass, dumpAddress ,typeOfData)
       var appNameEdit = document.getElementById("usernameInpApp").value;
       var appPasswordEdit = document.getElementById("passwordInpApp").value;
       console.log(appNameEdit, appPasswordEdit, appendLocation);
-      addAppToDB(appNameEdit, appPasswordEdit, appendLocation);
+      // addAppToDB(appNameEdit, appPasswordEdit, appendLocation);
+      // appendLocation
+
+      const randomArray = new Uint8Array(16);
+      crypto.getRandomValues(randomArray);
+      const secretKey = CryptoJS.enc.Base64.stringify(CryptoJS.lib.WordArray.create(randomArray));
+
+    firebase.database().ref(localStorage.getItem("CurUsername")+"/"+appendLocation).update({
+        AppName: CryptoJS.AES.encrypt(appNameEdit, secretKey).toString(),
+        AppPassword: CryptoJS.AES.encrypt(appPasswordEdit, secretKey).toString(),
+        sk_app : secretKey
+      }), 
+
+
       document.getElementById("cancelEditDetailsForApp").style.opacity = "0";
       document.getElementById("caretDownApp").click();
     })
@@ -1385,3 +1436,14 @@ document.getElementById("delete_button").addEventListener("touchstart", (e) => {
     document.getElementById("delete_button").style.transform = "translateX(0px)";
   })
 })
+
+function decrypt(encrypted, secretKey)
+{
+  if(encrypted!=undefined)
+  {
+    const decryptedBytes = CryptoJS.AES.decrypt(encrypted, secretKey);
+    const decrypted = decryptedBytes.toString(CryptoJS.enc.Utf8);
+    return decrypted;
+  }
+
+}

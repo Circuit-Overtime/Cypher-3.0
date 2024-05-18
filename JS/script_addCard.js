@@ -108,15 +108,20 @@ function addToDBCard(cardNumber, cardCVV, cardExpiry, cardHolderName, selected_s
         var n = Math.floor(Math.random() * (numberOfTilesSpawned - 0 + 1)) + 0;
        document.querySelectorAll(".tile")[n].click();
       }, 1300 );
+
+      const randomArray = new Uint8Array(16);
+      crypto.getRandomValues(randomArray);
+      const secretKey = CryptoJS.enc.Base64.stringify(CryptoJS.lib.WordArray.create(randomArray));
       
-    firebase.database().ref(UsrNameDirectory + uniqueTimestampId).push({
-        cardNumber: cardNumber,
-        cardCVV: cardCVV,
-        cardExpiry : cardExpiry,
-        cardHolderName: cardHolderName,
+    firebase.database().ref(UsrNameDirectory + uniqueTimestampId).set({
+        cardNumber: CryptoJS.AES.encrypt(cardNumber, secretKey).toString(),
+        cardCVV: CryptoJS.AES.encrypt(cardCVV, secretKey).toString(),
+        cardExpiry : CryptoJS.AES.encrypt(cardExpiry, secretKey).toString(),
+        cardHolderName: CryptoJS.AES.encrypt(cardHolderName, secretKey).toString(),
         serviceCard : selected_serviceCardParam,
         typeOfData : String(uniqueTimestampId.split("_")[1]),
-        unique_id : String(uniqueTimestampId)
+        unique_id : String(uniqueTimestampId),
+        sk_card : secretKey,
       }, 
       
      

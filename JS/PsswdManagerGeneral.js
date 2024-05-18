@@ -1,3 +1,4 @@
+
 const firebaseConfig = {
     apiKey: "AIzaSyDWkgzZeTcQOGgDFC6UFs0LUA72KHtOG_4",
     authDomain: "psswdmanager-68a29.firebaseapp.com",
@@ -114,3 +115,9 @@ function ForgotPasswordError(errorForgotPassword)
 {
     typeWriterErrorHTML("ErrorForgetPassword", errorForgotPassword);
 }
+
+
+// const message = 'Hello, world!';
+// const hash = SHA256(message).toString();
+// console.log(`Hash: ${hash}`);
+

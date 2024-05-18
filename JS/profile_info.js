@@ -12,7 +12,7 @@ db.collection("users").doc(localStorage.getItem("CurUsername").toLowerCase()).on
     document.getElementById("profile_logo_top_nav").style.background = `url("${doc.data().user_logo}")`
     document.getElementById("profile_logo_top_nav").style.backgroundSize = "cover";
 
-    document.getElementById("profile_name").innerHTML = "Hello, " + doc.data().displayName;
+    document.getElementById("profile_name").innerHTML = "Hello, " + doc.data().displayName.slice(0,10)+"...";
 })
 
 

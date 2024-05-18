@@ -43,6 +43,8 @@ document.getElementById("submitEntryApp").addEventListener("click", () => {
 })
 function addAppToDB(appname, app_password, appendLocation)
 {   
+  if(ViewMode != "Editable")
+{
     document.getElementById("successLoaderContainer").classList.add("OpacityActive");
   setTimeout(() => {
     document.getElementById("addApp").classList.toggle("active");
@@ -52,19 +54,24 @@ function addAppToDB(appname, app_password, appendLocation)
     let timestamp = new Date().getTime();
     uniqueTimestampId = timestamp+"_App"
     UsrNameDirectory = localStorage.getItem("CurUsername")+"/";
-    appendLocation == null ? appendLocation = UsrNameDirectory+uniqueTimestampId : appendLocation = UsrNameDirectory+appendLocation;
+    // appendLocation == null ? appendLocation = UsrNameDirectory+uniqueTimestampId : appendLocation = UsrNameDirectory+appendLocation;
       let numberOfTilesSpawned = document.querySelectorAll(".tile").length;
   
       var TilesAnimationInterval = setInterval(() => {
         var n = Math.floor(Math.random() * (numberOfTilesSpawned - 0 + 1)) + 0;
        document.querySelectorAll(".tile")[n].click();
       }, 1300 );
-      
-    firebase.database().ref(appendLocation).push({
-        AppName: appname,
-        AppPassword: app_password,
+
+      const randomArray = new Uint8Array(16);
+      crypto.getRandomValues(randomArray);
+      const secretKey = CryptoJS.enc.Base64.stringify(CryptoJS.lib.WordArray.create(randomArray));
+
+    firebase.database().ref(UsrNameDirectory + uniqueTimestampId).set({
+        AppName: CryptoJS.AES.encrypt(appname, secretKey).toString(),
+        AppPassword: CryptoJS.AES.encrypt(app_password, secretKey).toString(),
         typeOfData : String(uniqueTimestampId.split("_")[1]),
-        unique_id : String(uniqueTimestampId)
+        unique_id : String(uniqueTimestampId),
+        sk_app : secretKey
       }, 
       
      
@@ -84,5 +91,6 @@ function addAppToDB(appname, app_password, appendLocation)
          
         }
       });
+}
 }
 
