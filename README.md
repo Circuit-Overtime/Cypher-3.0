@@ -26,6 +26,10 @@ Happy exploring! 🚀🔐
 ### Backend:
 - Firebase
 
+### Encryption:
+- AES
+- 16 character LONG Ency
+
 ---
 
 ## About Safe Cypher
