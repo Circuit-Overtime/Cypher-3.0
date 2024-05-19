@@ -1,6 +1,8 @@
 globalThis.last_fetched_unique_id;
 globalThis.blockCounter = 0;
 globalThis.ViewMode = "ReadOnly"; //ReadOnly || Editable || Editing
+let initialLoad = true;
+let lastTouchEnd = 0;
 const chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var passwordLength = 8;
 var generated_password = "";
@@ -35,7 +37,8 @@ const firebaseConfig = {
   };
   const app = firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
-  window.onload = userGreetings(), scrollTop(), checkLocalStorage(),  getDataOfUser();
+  
+  window.onload = userGreetings(), scrollTop(), checkLocalStorage(),  getDataOfUser() ;
 
 function scrollTop()
 {
@@ -739,176 +742,184 @@ function getDataOfUser()
       document.getElementById("psswdBlobCont").style.overflowY = "hidden";
     }
   });
-  
+ 
+  const initialLoadCount = setInterval(() => {
+    if(document.getElementById("psswdBlobCont").childElementCount > 2)
+    {
+      initialLoad = false;
+      clearInterval(initialLoadCount);
+    }
+  }, 1000);
   
 }
 
 function getDataOfUserCont()
 {
-  var starCountRef = firebase.database().ref(localStorage.getItem("CurUsername")+'/');
-  starCountRef.on('child_added', (snapshot) => {
-    
-    
-    const data = snapshot.val();
-  
-    // Check if data exists
-    if (data) {
-      document.getElementById("noDataPatch").classList.remove("noDataPatchVisible");
-      document.getElementById("psswdBlobCont").style.overflowY = "auto";
-      // Convert the object values to an array
-      const dataArray = Object.values(new Set(Object.values(data)))
+
+  if (initialLoad) return;
+  else
+  {
+    var starCountRef = firebase.database().ref(localStorage.getItem("CurUsername")+'/');
+    starCountRef.on('child_added', (snapshot) => {
+      console.log("child_added")
       
-
-
-        for (i = 0; i < Object.values(data).length; i++)
-        {
-            //deciding logo for each service 
-          switch (String(Object.values(data)[i].service).toLowerCase()) {
-            case "google":
-              image_url = google;
-              break;
-            case "twitter":
-              image_url = twitter;
-              break;
-            
-            case "facebook":
-                image_url = facebook;
+      const data = snapshot.val();
+    console.log(data)
+      // Check if data exists
+      if (data) {
+        document.getElementById("noDataPatch").classList.remove("noDataPatchVisible");
+        document.getElementById("psswdBlobCont").style.overflowY = "auto";
+  
+       
+              //deciding logo for each service 
+              switch (String((data).service).toLowerCase()) {
+                case "google":
+                  image_url = google;
+                  break;
+                case "twitter":
+                  image_url = twitter;
+                  break;
+                
+                case "facebook":
+                    image_url = facebook;
+                    break;
+                
+                case "whatsapp":
+                  image_url = whatsapp;
+                  break;
+    
+                case "figma":
+                  image_url = figma;
+                  break;
+    
+                case "canva":
+                  image_url = canva;
+                  break;
+                
+                case "openai":
+                image_url = openai;
                 break;
-            
-            case "whatsapp":
-              image_url = whatsapp;
-              break;
-
-            case "figma":
-              image_url = figma;
-              break;
-
-            case "canva":
-              image_url = canva;
-              break;
-            
-            case "openai":
-            image_url = openai;
-            break;
-
-            default:
-              image_url = default_logo;
-              break;
-          }
-          switch (String(Object.values(data)[i].cardNumber).slice(0,1))
-          {
-            case "4":
-              var card_image_url = visacard;
-              console.log(card_image_url)
-              break;
-            case "5":
-              var card_image_url = mastercard;
-              break;
-            case "2":
-              var card_image_url = mastercard;
-              break;
-            case "3":
-              var card_image_url = americanExpress;
-              break;
-            default:
-              var card_image_url = default_logo;
-              break;
-          }
-
-          switch (String(Object.values(data)[i].AppName).toLowerCase()) {
-            case "google":
-              var app_image_url = google;
-              break;
-            case "twitter":
-              var app_image_url = twitter;
-              break;
-            
-            case "facebook":
-                var app_image_url = facebook;
+    
+                default:
+                  image_url = default_logo;
+                  break;
+              }
+              switch (String((data).cardNumber).slice(0,1))
+              {
+                case "4":
+                  var card_image_url = visacard;
+                  console.log(card_image_url)
+                  break;
+                case "5":
+                  var card_image_url = mastercard;
+                  break;
+                case "2":
+                  var card_image_url = mastercard;
+                  break;
+                case "3":
+                  var card_image_url = americanExpress;
+                  break;
+                default:
+                  var card_image_url = default_logo;
+                  break;
+              }
+    
+              switch (String((data).AppName).toLowerCase()) {
+                case "google":
+                  var app_image_url = google;
+                  break;
+                case "twitter":
+                  var app_image_url = twitter;
+                  break;
+                
+                case "facebook":
+                    var app_image_url = facebook;
+                    break;
+                
+                case "whatsapp":
+                  var app_image_url = whatsapp;
+                  break;
+    
+                case "figma":
+                  var app_image_url = figma;
+                  break;
+    
+                case "canva":
+                  var app_image_url = canva;
+                  break;
+                
+                case "openai":
+                var app_image_url = openai;
                 break;
-            
-            case "whatsapp":
-              var app_image_url = whatsapp;
-              break;
-
-            case "figma":
-              var app_image_url = figma;
-              break;
-
-            case "canva":
-              var app_image_url = canva;
-              break;
-            
-            case "openai":
-            var app_image_url = openai;
-            break;
-            
-            case "instagram":
-              var app_image_url = instagram;
-              break;
-
-            case "insta":
-              var app_image_url = instagram;
-              break
-
-            default:
-              var app_image_url = default_logo;
-              break;
-          }
-
-          DataAddTagLogin = `<div class="psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${decrypt(Object.values(data)[i].username, Object.values(data)[i].sk)+"   "+decrypt(Object.values(data)[i].password,Object.values(data)[i].sk)+"   "+decrypt(Object.values(data)[i].email,Object.values(data)[i].sk)+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard+"   "+Object.values(data)[i].unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
-          <div class="psswdBlobCntSngImg" style="background-image : url('${image_url}');"></div>
-          <p class="psswdBlobCntSngName">${(Object.values(data)[i].service) == "Custom" ? "Login Details" : "Login Details of "+(Object.values(data)[i].service)}</p>
-          <p class="psswdBlobCntSngEmail">${Object.values(data)[i].email}</p>
-          <span class="InfoContainer" style="display: none;"> Login Details ${(Object.values(data)[i].service)} ${Object.values(data)[i].email} </span>
-          </div>`
-
-          
-
-          DataAddTagCard = `<div class="psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+Object.values(data)[i].AppName+"   "+Object.values(data)[i].AppPassword+"   "+decrypt(Object.values(data)[i].cardNumber,Object.values(data)[i].sk_card)+"   "+decrypt(Object.values(data)[i].cardExpiry, Object.values(data)[i].sk_card)+"   "+decrypt(Object.values(data)[i].cardCVV, Object.values(data)[i].sk_card)+"   "+decrypt(Object.values(data)[i].cardHolderName, Object.values(data)[i].sk_card)+"   "+Object.values(data)[i].serviceCard+"   "+Object.values(data)[i].unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
-          <div class="psswdBlobCntSngImg" style="background-image : url(${card_image_url});"></div>
-          <p class="psswdBlobCntSngName">${Object.values(data)[i].typeOfData}</p>
-          <p class="psswdBlobCntSngEmail">${String(decrypt(Object.values(data)[i].cardNumber, Object.values(data)[i].sk_card)).slice(0,4) + "-****-****-****"} </p>
-          <span class="InfoContainer" style="display: none;"> ${Object.values(data)[i].typeOfData} ${String(decrypt(Object.values(data)[i].cardNumber, Object.values(data)[i].sk_card))} </span>
-          </div>`
-
-          
-          
-
-          DataAddTagApp = `<div class="psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${Object.values(data)[i].username+"   "+Object.values(data)[i].password+"   "+Object.values(data)[i].email+"   "+Object.values(data)[i].service+"   "+Object.values(data)[i].typeOfData+"   "+decrypt(Object.values(data)[i].AppName,Object.values(data)[i].sk_app)+"   "+decrypt(Object.values(data)[i].AppPassword,Object.values(data)[i].sk_app)+"   "+Object.values(data)[i].cardNumber+"   "+Object.values(data)[i].cardExpiry+"   "+Object.values(data)[i].cardCVV+"   "+Object.values(data)[i].cardHolderName+"   "+Object.values(data)[i].serviceCard+"   "+Object.values(data)[i].unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
-          <div class="psswdBlobCntSngImg" style="background-image : url('${app_image_url}');"></div>
-          <p class="psswdBlobCntSngName">Password of ${Object.values(data)[i].typeOfData} --> ${decrypt(Object.values(data)[i].AppName,Object.values(data)[i].sk_app)}</p>
-          <p class="psswdBlobCntSngEmail">${String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(0,2) + String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(2).replace(String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(2), "*".repeat(String(decrypt(Object.values(data)[i].AppPassword, Object.values(data)[i].sk_app)).slice(2).length))} </p>
-          <span class="InfoContainer" style="display: none;"> ${decrypt(Object.values(data)[i].AppName,Object.values(data)[i].sk_app)} </span>
-          </div>`
-
-          if(Object.values(data)[i].typeOfData == "Login")
-          {
-            document.getElementById("psswdBlobCont").innerHTML += DataAddTagLogin;
-          }
-          else if(Object.values(data)[i].typeOfData == "Card")
-          {
-            document.getElementById("psswdBlobCont").innerHTML += DataAddTagCard;
-          }
-          else if(Object.values(data)[i].typeOfData == "App")
-          {
-            document.getElementById("psswdBlobCont").innerHTML += DataAddTagApp;
-          }
-          // getDataOfUserCollect(Object.values(data)[0].unique_id)
-          // console.log(Object.values(data)[0].unique_id)
-        }
-
-       //dataArray.typeOfData
-    } else {
-      // console.log('No data available');
-      document.getElementById("noDataPatch").classList.add("noDataPatchVisible");
-      document.getElementById("psswdBlobCont").style.overflowY = "hidden";
-    }
-  });
+                
+                case "instagram":
+                  var app_image_url = instagram;
+                  break;
+    
+                case "insta":
+                  var app_image_url = instagram;
+                  break
+    
+                default:
+                  var app_image_url = default_logo;
+                  break;
+              }
+    
+              DataAddTagLogin = `<div class="psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${decrypt((data).username, (data).sk)+"   "+decrypt((data).password,(data).sk)+"   "+decrypt((data).email,(data).sk)+"   "+(data).service+"   "+(data).typeOfData+"   "+(data).AppName+"   "+(data).AppPassword+"   "+(data).cardNumber+"   "+(data).cardExpiry+"   "+(data).cardCVV+"   "+(data).cardHolderName+"   "+(data).serviceCard+"   "+(data).unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
+              <div class="psswdBlobCntSngImg" style="background-image : url('${image_url}');"></div>
+              <p class="psswdBlobCntSngName">${((data).service) == "Custom" ? "Login Details" : "Login Details of "+((data).service)}</p>
+              <p class="psswdBlobCntSngEmail">${(data).email}</p>
+              <span class="InfoContainer" style="display: none;"> Login Details ${((data).service)} ${(data).email} </span>
+              </div>`
+    
+              
+    
+              DataAddTagCard = `<div class="psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${(data).username+"   "+(data).password+"   "+(data).email+"   "+(data).service+"   "+(data).typeOfData+"   "+(data).AppName+"   "+(data).AppPassword+"   "+decrypt((data).cardNumber,(data).sk_card)+"   "+decrypt((data).cardExpiry, (data).sk_card)+"   "+decrypt((data).cardCVV, (data).sk_card)+"   "+decrypt((data).cardHolderName, (data).sk_card)+"   "+(data).serviceCard+"   "+(data).unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
+              <div class="psswdBlobCntSngImg" style="background-image : url(${card_image_url});"></div>
+              <p class="psswdBlobCntSngName">${(data).typeOfData}</p>
+              <p class="psswdBlobCntSngEmail">${String(decrypt((data).cardNumber, (data).sk_card)).slice(0,4) + "-****-****-****"} </p>
+              <span class="InfoContainer" style="display: none;"> ${(data).typeOfData} ${String(decrypt((data).cardNumber, (data).sk_card))} </span>
+              </div>`
+    
+              
+              
+    
+              DataAddTagApp = `<div class="psswdBlobCntSng" onclick = "viewDetails(this)" data-id="${(data).username+"   "+(data).password+"   "+(data).email+"   "+(data).service+"   "+(data).typeOfData+"   "+decrypt((data).AppName,(data).sk_app)+"   "+decrypt((data).AppPassword,(data).sk_app)+"   "+(data).cardNumber+"   "+(data).cardExpiry+"   "+(data).cardCVV+"   "+(data).cardHolderName+"   "+(data).serviceCard+"   "+(data).unique_id}" style = "transform: translateX(-100%); animation: appearFromSide 0.5s linear forwards; animation-delay: ${i*0.1}s; ">
+              <div class="psswdBlobCntSngImg" style="background-image : url('${app_image_url}');"></div>
+              <p class="psswdBlobCntSngName">Password of ${(data).typeOfData} --> ${decrypt((data).AppName,(data).sk_app)}</p>
+              <p class="psswdBlobCntSngEmail">${String(decrypt((data).AppPassword, (data).sk_app)).slice(0,2) + String(decrypt((data).AppPassword, (data).sk_app)).slice(2).replace(String(decrypt((data).AppPassword, (data).sk_app)).slice(2), "*".repeat(String(decrypt((data).AppPassword, (data).sk_app)).slice(2).length))} </p>
+              <span class="InfoContainer" style="display: none;"> ${decrypt((data).AppName,(data).sk_app)} </span>
+              </div>`
+    
+              if((data).typeOfData == "Login")
+              {
+                document.getElementById("psswdBlobCont").innerHTML += DataAddTagLogin;
+              }
+              else if((data).typeOfData == "Card")
+              {
+                document.getElementById("psswdBlobCont").innerHTML += DataAddTagCard;
+              }
+              else if((data).typeOfData == "App")
+              {
+                document.getElementById("psswdBlobCont").innerHTML += DataAddTagApp;
+              }
+  
+         //dataArray.typeOfData
+      } else {
+        // console.log('No data available');
+        document.getElementById("noDataPatch").classList.add("noDataPatchVisible");
+        document.getElementById("psswdBlobCont").style.overflowY = "hidden";
+      }
+    });
+  }
+  
   
   
 }
 
+
+getDataOfUserCollect();
+getDataOfUserCont()
 
 function getDataOfUserUpdate()
 {
@@ -932,8 +943,7 @@ function getDataOfUserUpdate()
   
   
 }
-getDataOfUserCont();
-getDataOfUserCollect();
+
 getDataOfUserUpdate();
 
 
@@ -1007,7 +1017,7 @@ function viewDetails(self)
         ShowInfoforApp(obtainedAppName, obtainedAppPassword, obtainedUniqueIdToDump, obtainedTypeOfData);
         break;
       case "Card":
-        ShowInfoforCard(obtainedCardNumber, obtainedCardExpiry, obtainedCardCVV, obtainedCardHolderName, obtainedCardService);
+        ShowInfoforCard(obtainedCardNumber, obtainedCardExpiry, obtainedCardCVV, obtainedCardHolderName, obtainedCardService, obtainedUniqueIdToDump);
     }
    
 
@@ -1043,32 +1053,32 @@ function ShowInfoforLogin(name, pass, email, service, dumpAddress, typeOfData)
     document.getElementById("copyPassAddPassword").style.display = "none";
     document.getElementById("copyPassAddPassword").setAttribute("data-id", "");
 
-    (ViewMode != "Editable") ? ( document.getElementById("editDetailsForLogin").style.opacity = "1",
-    document.getElementById("usernameInp").value = "",
-    document.getElementById("passwordInp").value = "",
-    document.getElementById("emailInp").value = "",
-    document.getElementById("selectedServiceAddPassword").innerHTML = "",
-    document.getElementById("passwordInp").setAttribute("type" , "password"),
-    togglePasswordvisibility("SeePwdOfAddPwd", "passwordInp"),
+    // (ViewMode != "Editable") ? ( document.getElementById("editDetailsForLogin").style.opacity = "1",
+    // document.getElementById("usernameInp").value = "",
+    // document.getElementById("passwordInp").value = "",
+    // document.getElementById("emailInp").value = "",
+    // document.getElementById("selectedServiceAddPassword").innerHTML = "",
+    // document.getElementById("passwordInp").setAttribute("type" , "password"),
+    // togglePasswordvisibility("SeePwdOfAddPwd", "passwordInp"),
 
-    document.getElementById("usernameInp").removeAttribute("readOnly"),
-    document.getElementById("passwordInp").removeAttribute("readOnly"),
-    document.getElementById("emailInp").removeAttribute("readOnly"),
-    document.getElementById("suggestNav").style.pointerEvents = "all",
-    document.getElementById("submitEntry").style.pointerEvents = "all",
+    // document.getElementById("usernameInp").removeAttribute("readOnly"),
+    // document.getElementById("passwordInp").removeAttribute("readOnly"),
+    // document.getElementById("emailInp").removeAttribute("readOnly"),
+    // document.getElementById("suggestNav").style.pointerEvents = "all",
+    // document.getElementById("submitEntry").style.pointerEvents = "all",
 
-    document.getElementById("GenPwd").style.opacity = "1",
-    document.getElementById("GenPwd").style.pointerEvents = "all",
+    // document.getElementById("GenPwd").style.opacity = "1",
+    // document.getElementById("GenPwd").style.pointerEvents = "all",
 
-    clearTimeout(ViewModeReadOnlyTimer),
-    document.getElementById("delete_button").style.opacity = 0,
-    document.getElementById("delete_button").style.pointerEvents = "none",
-    document.getElementById("editDetailsForLogin").style.opacity = "0",
-    ViewMode = "Editable")
+    // clearTimeout(ViewModeReadOnlyTimer),
+    // document.getElementById("delete_button").style.opacity = 0,
+    // document.getElementById("delete_button").style.pointerEvents = "none",
+    // document.getElementById("editDetailsForLogin").style.opacity = "0",
+    // ViewMode = "Editable")
     
     
-    :
-    null;
+    // :
+    // null;
 })
 
     ViewModeReadOnlyTimer = setInterval(() => {
@@ -1203,12 +1213,15 @@ function ShowInfoforApp(appname, pass, dumpAddress ,typeOfData)
 {
     globalThis.ViewMode = "ReadOnly";
     
+    document.getElementById("delete_button_app").style.opacity = 1;
+    document.getElementById("delete_button_app").style.pointerEvents = "all";
+    document.getElementById("delete_button_app").setAttribute("data-id", dumpAddress);
+    
     document.getElementById("editDetailsForApp").style.animationPlayState = "paused";
     document.getElementById("cancelEditDetailsForApp").style.opacity = "0";
     document.getElementById("editDetailsForApp").setAttribute("data-id", dumpAddress);
     document.getElementById("cancelEditDetailsForApp").setAttribute("data-id", typeOfData);
-    document.getElementById("delete_button").style.opacity = 1;
-    document.getElementById("delete_button").style.pointerEvents = "all";
+
     document.getElementById("allPsswds").classList.add("blurHover");
     document.getElementById("CrossAllPwdDown").style.zIndex = 14;
     document.getElementById("searchBarPwdCollec").style.zIndex = 14;
@@ -1224,28 +1237,29 @@ function ShowInfoforApp(appname, pass, dumpAddress ,typeOfData)
     document.getElementById("CrossAllPwdDown").style.zIndex = 20;
     document.getElementById("searchBarPwdCollec").style.zIndex = 17;
     document.querySelector(".maskPwdCollec").style.zIndex = 16;
+    document.getElementById("delete_button_app").setAttribute("data-id", "");
 
     
 
 
-        (ViewMode != "Editable") ? (document.getElementById("usernameInpApp").value = "",
-        document.getElementById("passwordInpApp").value = "",
-        globalThis.ViewMode = "Editable",
+        // (ViewMode != "Editable") ? (document.getElementById("usernameInpApp").value = "",
+        // document.getElementById("passwordInpApp").value = "",
+        // // globalThis.ViewMode = "Editable",
 
-        document.getElementById("passwordInpApp").setAttribute("type" , "password"),
-        togglePasswordvisibility("SeePwd", "passwordInpApp"),
+        // document.getElementById("passwordInpApp").setAttribute("type" , "password"),
+        // togglePasswordvisibility("SeePwd", "passwordInpApp"),
 
-        document.getElementById("usernameInpApp").removeAttribute("readOnly"),
-        document.getElementById("passwordInpApp").removeAttribute("readOnly"),
-        document.getElementById("submitEntryApp").style.pointerEvents = "all",
-        document.getElementById("GenPwdApp").style.opacity = "1",
-        document.getElementById("GenPwdApp").style.pointerEvents = "all",
-        document.getElementById("editDetailsForApp").style.opacity = "0",
-        document.getElementById("delete_button").style.opacity = 0,
-        document.getElementById("delete_button").style.pointerEvents = "none",
-        clearTimeout(ViewModeReadOnlyTimer))
-        :
-        null;
+        // document.getElementById("usernameInpApp").removeAttribute("readOnly"),
+        // document.getElementById("passwordInpApp").removeAttribute("readOnly"),
+        // document.getElementById("submitEntryApp").style.pointerEvents = "all",
+        // document.getElementById("GenPwdApp").style.opacity = "1",
+        // document.getElementById("GenPwdApp").style.pointerEvents = "all",
+        // document.getElementById("editDetailsForApp").style.opacity = "0",
+        // document.getElementById("delete_button").style.opacity = 1,
+        // document.getElementById("delete_button").style.pointerEvents = "none",
+        // clearTimeout(ViewModeReadOnlyTimer))
+        // :
+        // null;
     })
 
 
@@ -1337,42 +1351,48 @@ function ShowInfoforApp(appname, pass, dumpAddress ,typeOfData)
 
 }
 
-function ShowInfoforCard(num, exp, cvv, name, cardService)
+function ShowInfoforCard(num, exp, cvv, name, cardService, dumpAddress)
 {
     
     globalThis.ViewMode = "ReadOnly";
+    
+    document.getElementById("delete_button_card").style.opacity = 1;
+    document.getElementById("delete_button_card").setAttribute("data-id", dumpAddress);
+    // console.log(document.getElementById("delete_button").style.opacity);
+    document.getElementById("delete_button_card").style.pointerEvents = "all";
+
     document.getElementById("allPsswds").classList.add("blurHover");
     document.getElementById("CrossAllPwdDown").style.zIndex = 14;
     document.getElementById("searchBarPwdCollec").style.zIndex = 14;
     document.querySelector(".maskPwdCollec").style.zIndex = 14;
-    document.getElementById("delete_button").style.opacity = 1;
-    document.getElementById("delete_button").style.pointerEvents = "all";
+
     document.getElementById("caretDownCard").addEventListener("click", () => {
     document.getElementById("allPsswds").classList.remove("blurHover");
     document.getElementById("CrossAllPwdDown").style.zIndex = 20;
     document.getElementById("CrossAllPwdDown").style.zIndex = 20;
     document.getElementById("searchBarPwdCollec").style.zIndex = 17;
+    document.getElementById("delete_button_card").setAttribute("data-id", "");
 
     
 
-        (ViewMode != "Editable") ? (document.getElementById("usernameInpCard").value = "",
-        document.getElementById("passwordInpCard").value = "",
-        document.getElementById("DateInpCard").value = "",
-        document.getElementById("emailInpCard").value = "",
-        document.getElementById("selectedServiceCard").innerHTML = "",
-        globalThis.ViewMode = "Editable",
+        // (ViewMode != "Editable") ? (document.getElementById("usernameInpCard").value = "",
+        // document.getElementById("passwordInpCard").value = "",
+        // document.getElementById("DateInpCard").value = "",
+        // document.getElementById("emailInpCard").value = "",
+        // document.getElementById("selectedServiceCard").innerHTML = "",
+        // globalThis.ViewMode = "Editable",
 
-        document.getElementById("usernameInpCard").removeAttribute("readOnly"),
-        document.getElementById("passwordInpCard").removeAttribute("readOnly"),
-        document.getElementById("emailInpCard").removeAttribute("readOnly"),
-        document.getElementById("DateInpCard").removeAttribute("readOnly"),
-        document.getElementById("suggestNavCard").style.pointerEvents = "all",
-        document.getElementById("submitEntryCard").style.pointerEvents = "all",
-        document.getElementById("delete_button").style.opacity = 0,
-        document.getElementById("delete_button").style.pointerEvents = "none",
-        clearTimeout(ViewModeReadOnlyTimer))
-        :
-        null;
+        // document.getElementById("usernameInpCard").removeAttribute("readOnly"),
+        // document.getElementById("passwordInpCard").removeAttribute("readOnly"),
+        // document.getElementById("emailInpCard").removeAttribute("readOnly"),
+        // document.getElementById("DateInpCard").removeAttribute("readOnly"),
+        // document.getElementById("suggestNavCard").style.pointerEvents = "all",
+        // document.getElementById("submitEntryCard").style.pointerEvents = "all",
+        // document.getElementById("delete_button").style.opacity = 0,
+        // document.getElementById("delete_button").style.pointerEvents = "none",
+        // clearTimeout(ViewModeReadOnlyTimer))
+        // :
+        // null;
     })
      ViewModeReadOnlyTimer = setInterval(() => {
         if(ViewMode == "ReadOnly")
@@ -1419,23 +1439,99 @@ function ShowInfoforCard(num, exp, cvv, name, cardService)
 
 document.getElementById("delete_button").addEventListener("click", (e) => {
   console.log(e.target.getAttribute("data-id"));
-  typeWriterEffectHTML("delete_command", "Press the Delete Icon for 5 Seconds to Delete ");
+  typeWriterEffectHTML("delete_command", "Double Tap The Delete Button");
   setTimeout(() => {
     document.getElementById("delete_command").innerHTML = "";
   }, 6000);
 })
-document.getElementById("delete_button").addEventListener("touchstart", (e) => {
-  var deletetouchTimer = setTimeout(() => {
-    document.getElementById("delete_button").style.transform = "translateX(-550px)";
+document.getElementById("delete_button").addEventListener("dblclick", (e) => {
+  console.log("double")
+  document.getElementById("delete_command").innerHTML = "";
+  document.getElementById("delete_button").style.transform = "translateX(-550px)";
     firebase.database().ref(localStorage.getItem("CurUsername")+"/"+e.target.getAttribute("data-id")).remove();
     location.reload();
-  }, 5000);
-  document.getElementById("delete_button").style.transform = "translateX(0px)";
-  document.getElementById("delete_button").addEventListener("touchend", () => {
-    clearTimeout(deletetouchTimer);
-    document.getElementById("delete_button").style.transform = "translateX(0px)";
-  })
 })
+
+document.getElementById("delete_button").addEventListener("touchend", (e) => {
+  const now = (new Date()).getTime();
+  const timeSinceLastTouch = now - lastTouchEnd;
+  
+  if (timeSinceLastTouch < 300 && timeSinceLastTouch > 0) {
+    document.getElementById("delete_command").innerHTML = "";
+    document.getElementById("delete_button").style.transform = "translateX(-550px)";
+      firebase.database().ref(localStorage.getItem("CurUsername")+"/"+e.target.getAttribute("data-id")).remove();
+      location.reload();
+  }
+  
+  lastTouchEnd = now;
+})
+
+
+
+
+
+document.getElementById("delete_button_app").addEventListener("click", (e) => {
+  console.log(e.target.getAttribute("data-id"));
+  typeWriterEffectHTML("delete_command_app", "Double Tap The Delete Button");
+  setTimeout(() => {
+    document.getElementById("delete_command_app").innerHTML = "";
+  }, 6000);
+})
+document.getElementById("delete_button_app").addEventListener("dblclick", (e) => {
+  console.log("double")
+  document.getElementById("delete_command_app").innerHTML = "";
+  document.getElementById("delete_button_app").style.transform = "translateX(-550px)";
+    firebase.database().ref(localStorage.getItem("CurUsername")+"/"+e.target.getAttribute("data-id")).remove();
+    location.reload();
+})
+
+document.getElementById("delete_button_app").addEventListener("touchend", (e) => {
+  const now = (new Date()).getTime();
+  const timeSinceLastTouch = now - lastTouchEnd;
+  
+  if (timeSinceLastTouch < 300 && timeSinceLastTouch > 0) {
+    document.getElementById("delete_command_app").innerHTML = "";
+    document.getElementById("delete_button_app").style.transform = "translateX(-550px)";
+      firebase.database().ref(localStorage.getItem("CurUsername")+"/"+e.target.getAttribute("data-id")).remove();
+      location.reload();
+  }
+  
+  lastTouchEnd = now;
+})
+
+
+
+document.getElementById("delete_button_card").addEventListener("click", (e) => {
+  console.log(e.target.getAttribute("data-id"));
+  typeWriterEffectHTML("delete_command_card", "Double Tap The Delete Button");
+  setTimeout(() => {
+    document.getElementById("delete_command_app").innerHTML = "";
+  }, 6000);
+})
+document.getElementById("delete_button_card").addEventListener("dblclick", (e) => {
+  console.log("double")
+  document.getElementById("delete_command_card").innerHTML = "";
+  document.getElementById("delete_button_card").style.transform = "translateX(-550px)";
+    firebase.database().ref(localStorage.getItem("CurUsername")+"/"+e.target.getAttribute("data-id")).remove();
+    location.reload();
+})
+
+document.getElementById("delete_button_card").addEventListener("touchend", (e) => {
+  const now = (new Date()).getTime();
+  const timeSinceLastTouch = now - lastTouchEnd;
+  
+  if (timeSinceLastTouch < 300 && timeSinceLastTouch > 0) {
+    document.getElementById("delete_command_card").innerHTML = "";
+    document.getElementById("delete_button_card").style.transform = "translateX(-550px)";
+      firebase.database().ref(localStorage.getItem("CurUsername")+"/"+e.target.getAttribute("data-id")).remove();
+      location.reload();
+  }
+  
+  lastTouchEnd = now;
+})
+
+
+
 
 function decrypt(encrypted, secretKey)
 {

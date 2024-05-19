@@ -698,7 +698,80 @@
     transition: 0.5s;
 }
 
+
+#delete_button_app
+{
+    height: 80px;
+    width: 80px;
+    padding-left: -15px;
+    position: absolute;
+    top: 95%;
+    border-top-right-radius: 25px;
+    transform: translateY(-50%);
+    color: #f02334;
+    left: -6%;
+    font-size: 25px;
+    z-index: 15;
+    /* background-color: #fff; */
+    text-align: right;
+    justify-content: center;
+    vertical-align: center;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+#delete_button_card
+{
+    height: 80px;
+    width: 80px;
+    padding-left: -15px;
+    position: absolute;
+    top: 95%;
+    border-top-right-radius: 25px;
+    transform: translateY(-50%);
+    color: #f02334;
+    left: -6%;
+    font-size: 25px;
+    z-index: 15;
+    /* background-color: #fff; */
+    text-align: right;
+    justify-content: center;
+    vertical-align: center;
+    opacity: 0;
+    transition: 0.5s;
+}
+
 .delete_command
+{
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    font-size:15px ;
+    transform: translateX(-50%);
+    color: rgb(238, 171, 180);
+    font-family: 'Kanit';
+    font-weight: 400;
+    word-wrap: break-word;
+    width: 100%;
+    text-align: center;
+    height: 250px;
+}
+.delete_command_app
+{
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    font-size:15px ;
+    transform: translateX(-50%);
+    color: rgb(238, 171, 180);
+    font-family: 'Kanit';
+    font-weight: 400;
+    word-wrap: break-word;
+    width: 100%;
+    text-align: center;
+    height: 250px;
+}
+.delete_command_card
 {
     position: absolute;
     top: 22%;

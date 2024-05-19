@@ -186,6 +186,7 @@
 
 <div class="addCard" id="addCard">
     <div class="whiteBarCard"></div>
+    <p class="delete_command_card" id="delete_command_card"> </p>
 <div class="suggestNavCard" id="suggestNavCard">
     <span class="customCard" onclick="submitServiceCard(this)" data-id="+Custom" id="CardServiceTypes">+Custom</span>
     <span class="sbi" onclick="submitServiceCard(this)" data-id="+SBI" id="CardServiceTypes"> +SBI </span>
@@ -220,12 +221,12 @@
     </span>
   </h1>
 
-
-  <i class="fa-solid fa-trash" id="delete_button"  data-id=""></i>
+  
 <input type="tel" class="usernameInpCard" id="usernameInpCard" placeholder="Add Card Number" maxlength="19" value="" autocomplete="false" spellcheck="false"><span class="maskNameCard"></span>
 <input type="tel" class="passwordInpCard" id="passwordInpCard" placeholder="CVV" maxlength="3" value="" autocomplete="false" spellcheck="false"><span class="maskPassCard"></span>
 <input type="tel" class="DateInpCard" id="DateInpCard" placeholder="MM / YY" maxlength="5" value="" autocomplete="false" spellcheck="false"><span class="maskDateCard"></span>
 <input type="email" class="emailInpCard" id="emailInpCard" placeholder="Add Cardholder Name" value="" autocomplete="false" spellcheck="false"><span class="maskEmailCard"></span>
+<i class="fa-solid fa-trash" id="delete_button_card"  data-id=""></i>
 <button class="submitEntryCard" id="submitEntryCard">ADD CARD</button>
 <i class="fa-solid fa-angles-down fa-bounce" id="caretDownCard"></i>
 <p class="cardDetailsEditBlock"> Card Details can't be Edited, Please Delete the Card & Re-enter the Details if Necessary</p>
@@ -234,12 +235,14 @@
 
 <div class="addApp" id="addApp">
     <div class="whiteBar"></div>
-    <i class="fa-solid fa-trash" id="delete_button"  data-id=""></i>
+    <p class="delete_command_app" id="delete_command_app"></p>
 <i class="fa-solid fa-x" id="cancelEditDetailsForApp" data-id=""></i>
 <i class="fa-solid fa-pen" id="editDetailsForApp" data-id=""></i>
 <input type="text" class="usernameInpApp" id="usernameInpApp" placeholder="Add App Name" value="" autocomplete="false" spellcheck="false"><span class="maskNameApp"></span>
 <input type="password" class="passwordInpApp" id="passwordInpApp" placeholder="Add Password" value="" autocomplete="false" spellcheck="false"><span class="maskPassApp"></span><i class="fa-solid fa-eye hidden" id="SeePwd"></i><i class="fa-solid fa-wand-magic-sparkles" id="GenPwdApp"></i></ion-icon><i class="fa-solid fa-copy"  id="copyPass" data-id="" onclick="copyPassword(this)"></i>
+
 <button class="submitEntryApp" id="submitEntryApp">ADD APP</button>
+<i class="fa-solid fa-trash" id="delete_button_app"  data-id=""></i>
 <i class="fa-solid fa-angles-down fa-bounce" id="caretDownApp"></i>
 </div>
 

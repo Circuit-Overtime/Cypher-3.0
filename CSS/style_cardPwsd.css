@@ -518,8 +518,8 @@
 #caretDownCard
 {
     position: absolute;
-    top: 90%;
-    left: 50%;
+    top: 88%;
+    left: 48%;
     transform: translateX(-50%);
     color: #ffc;
     font-size: 24px;
@@ -528,7 +528,7 @@
 .cardDetailsEditBlock
 {   
     position: absolute;
-    top: 93%;
+    top: 92%;
     width: 95%;
     text-align: center;
     left: 50%;
