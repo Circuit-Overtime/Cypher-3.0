@@ -342,4 +342,37 @@
         text-align: center;
         height: 250px;
     }
-    
+    #signin_with_google_reg
+{
+    position: relative;
+    height: 35px;
+    width: 35px;
+    left: 5%;
+    top: 86%;
+    /* transform: translateY(-400px) translateX(320px); */
+    transition: 0.5s;
+    background: url("https://firebasestorage.googleapis.com/v0/b/psswdmanager-68a29.appspot.com/o/OfficialFiles%2FGoogle__G__logo.svg.png?alt=media&token=9c6e22bb-dfb0-4368-89c9-2372ba57762c");
+    background-size: cover;
+    mix-blend-mode: normal;
+    filter: drop-shadow(0 0 20px #111);
+    z-index: 10;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#signin_with_github_reg
+{
+    position: relative;
+    height: 35px;
+    width: 35px;
+    left: 25%;
+    top: 80%;
+    /* transform: translateY(-555px) translateX(-250px); */
+    transition: 0.5s;
+    background: url("https://firebasestorage.googleapis.com/v0/b/psswdmanager-68a29.appspot.com/o/OfficialFiles%2Fgithub%20logo.png?alt=media&token=074703b5-9535-4a73-b140-fb0301630003");
+    background-size: cover;
+    mix-blend-mode: normal;
+    filter: drop-shadow(0 0 10px #fff);
+    z-index: 10;
+    -webkit-tap-highlight-color: transparent;
+    filter: invert(1);
+}
