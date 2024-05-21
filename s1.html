@@ -49,8 +49,8 @@
 
     <div class="loginform" id="loginform">
       <p class="loginTxt"> LOGIN </p>
-      <input type="email" class="usrEmailInp" id="usrEmailInp" placeholder="Username"><span class="usrEmailMask"></span>
-      <input type="password" class="usrPwdInp" id="usrPwdInp" placeholder="Password"><span class="usrPwdMask"></span>
+      <input type="email" class="usrEmailInp" id="usrEmailInp" placeholder="Username" autocomplete="off" autofocus spellcheck="false"><span class="usrEmailMask"></span>
+      <input type="password" class="usrPwdInp" id="usrPwdInp" placeholder="Password" autocomplete="off" spellcheck="false"><span class="usrPwdMask"></span>
       <i class="fa-solid fa-down-long" id="pull_down"></i>
       <p class="ErrorLog" id="ErrorLog"></p>
       <button class="submitEntryCard" id="submitEntryCard">LOGIN</button>
@@ -65,10 +65,10 @@
     <div class="registerForm" id="registerForm">
       <i class="fa-solid fa-up-long" id="pull_up"></i>
       <p class="regTxt"> Register </p>
-      <input type="text" class="usrNameInpReg" id="usrNameInpReg" spellcheck="false" placeholder="Provide Username "  ><span class="usrNameMaskReg" ></span><i class="fa-solid fa-circle-check" id="validUser"></i>
-      <input type="email" class="usrEmailInpReg" id="usrEmailInpReg" placeholder="Provide Email Address" value="" ><span class="usrEmailMaskReg" ></span><i class="fa-solid fa-circle-check" id="validEmail"></i>
-      <input type="password" class="usrPwdInpReg " id="usrPwdInpReg" value = "" placeholder="Provide Password" ><span class="usrPwdMaskReg" ></span><span class="passwordHideMask"></span><i class="fa-solid fa-wand-magic-sparkles" id="GenPwd"></i><ion-icon name="eye" id="SeePwd" class="hidden"></ion-icon>
-      <input type="password" class="usrPwdConfInpReg hidden" id="usrPwdConfInpReg" value = "" placeholder="Confirm Password" ><span class="usrPwdConfMaskReg"></span><ion-icon name="eye" id="SeePwdConf" class="hidden"></ion-icon>
+      <input type="text" class="usrNameInpReg" id="usrNameInpReg" spellcheck="false" placeholder="Provide Username "  autocomplete="off" spellcheck="false"><span class="usrNameMaskReg" ></span><i class="fa-solid fa-circle-check" id="validUser"></i>
+      <input type="email" class="usrEmailInpReg" id="usrEmailInpReg" placeholder="Provide Email Address" value="" autocomplete="off"spellcheck="false"> <span class="usrEmailMaskReg" ></span><i class="fa-solid fa-circle-check" id="validEmail"></i>
+      <input type="password" class="usrPwdInpReg " id="usrPwdInpReg" value = "" placeholder="Provide Password" autocomplete="off" spellcheck="false"><span class="usrPwdMaskReg" ></span><span class="passwordHideMask"></span><i class="fa-solid fa-wand-magic-sparkles" id="GenPwd"></i><ion-icon name="eye" id="SeePwd" class="hidden"></ion-icon>
+      <input type="password" class="usrPwdConfInpReg hidden" id="usrPwdConfInpReg" value = "" placeholder="Confirm Password" autocomplete="off" spellcheck="false"><span class="usrPwdConfMaskReg"></span><ion-icon name="eye" id="SeePwdConf" class="hidden"></ion-icon>
       
       <p class="ErrorReg" id="ErrorReg"></p>
       <button class="submitEntryCardReg" id="submitEntryCardReg">Register</button>

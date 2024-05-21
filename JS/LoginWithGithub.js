@@ -18,6 +18,13 @@ document.getElementById("signin_with_github").addEventListener("click", () => {
         }
         else
         {
+            document.getElementById("successLoaderContainer").classList.add("OpacityActive");
+            var TilesAnimationInterval = setInterval(() => {
+            var n = Math.floor(Math.random() * (numberOfTilesSpawned - 0 + 1)) + 0;
+            document.querySelectorAll(".tile")[n].click();
+            }, 1300 );
+
+
                 db.collection('users').doc(user.displayName.toLowerCase()).set({
                     username : user.displayName.toLowerCase(),
                     email : user.email,
@@ -42,12 +49,23 @@ document.getElementById("signin_with_github").addEventListener("click", () => {
                         console.log('FAILED...', error);
                         
                     });
-    
+                    
+                    setTimeout(() => {
+                        document.getElementById("successLoaderContainer").classList.remove("OpacityActive");
+                        
+                        clearInterval(TilesAnimationInterval);
+                      }, 3300);
+
                     localStorage.setItem("CurUsername", user.displayName);
                     window.location.replace("s2.html");       
                 })
                 .catch((err) => {
                     console.log(err)
+                    setTimeout(() => {
+                        document.getElementById("successLoaderContainer").classList.remove("OpacityActive");
+                        
+                        clearInterval(TilesAnimationInterval);
+                      }, 3300);
                 })
 
                 
