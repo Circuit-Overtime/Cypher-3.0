@@ -762,6 +762,7 @@ function getDataOfUserCont()
     var starCountRef = firebase.database().ref(localStorage.getItem("CurUsername")+'/');
     starCountRef.on('child_added', (snapshot) => {
       console.log("child_added")
+      location.reload()
       
       const data = snapshot.val();
     console.log(data)
