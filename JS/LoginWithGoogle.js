@@ -1,4 +1,4 @@
-document.getElementById("signin_with_google_reg").addEventListener("click", () => {
+document.getElementById("signin_with_google").addEventListener("click", () => {
   var provider = new firebase.auth.GoogleAuthProvider();
 
   firebase.auth().signInWithPopup(provider)
